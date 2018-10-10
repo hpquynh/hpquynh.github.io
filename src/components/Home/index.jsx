@@ -1,7 +1,7 @@
 import React from 'react';
 
 const HomeComponent = () => {
-  const check = '4';
+  const check = 'HOME';
   return (
     <div className="container-fluid">
       <div>{check}</div>

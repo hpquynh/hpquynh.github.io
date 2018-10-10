@@ -16,14 +16,8 @@
     "flow"
   ],
   "plugins": [
-    "transform-runtime",
-    "syntax-dynamic-import",
-    "transform-object-rest-spread",
-    [
-      "transform-class-properties",
-      {
-        "spec": true
-      }
-    ]
+    ["styled-components", {
+      "displayName": true
+    }]
   ]
 }
