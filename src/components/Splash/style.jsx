@@ -150,6 +150,7 @@ export const Logo = styled.span`
       top: -21px;
       font-size: 2.5rem;
       color: white;
+      font-family: ${props => props.theme.font.second}
     }
   }
   &:hover ${Child2} {

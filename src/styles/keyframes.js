@@ -57,3 +57,102 @@ export const fadeInRotate = keyframes`
    
   }
 `;
+
+export const wave1 = keyframes`
+  0% {
+    margin-left: 0;
+    transform: translate3d(0, 0 ,0);
+  }
+  70% {
+    margin-left: -110px;
+    transform: translate3d(-20px, 10px,30px) skew(2deg,-2deg);
+  }
+   100% {
+    margin-left: 0;
+    transform: translate3d(0,0,0) skew(0);
+  }
+`;
+
+export const wave2 = keyframes`
+  0% {
+    transform: translate3d(0, 0 ,0) skew(0);
+  }
+  50% {
+    transform: translate3d(-70px, 10px,30px) skew(9deg,5deg);
+  }
+   100% {
+     transform: translate3D(0,0,0) skew(0);
+  }
+`;
+
+export const backgroundChange = keyframes`
+  0% {
+    background-color: #f5f5f5;
+  }
+  10% {
+     background-color: #8e91f4;
+  }
+  15% {
+   background-color: #8d8af1;
+  }
+  25% {
+    background-color: #48e8f4;
+  }
+  40% {
+    background-color: #fffe6a;
+  }
+  45%{
+    background-color: #f5f5f5;
+  }
+  100%{
+    background-color: #f5f5f5;
+  }
+`;
+
+export const colorChange = keyframes`
+  0% {
+    color: #3c3737;
+  }
+  5% {
+    color: #fffe6a;
+  }
+  15% {
+   color: #48e8f4;
+  }
+  25% {
+   color: #8d8af1;
+  }
+  40% {
+    color: #8e91f4;
+  }
+  45%{
+    color: #3c3737;
+  }
+  100%{
+    color: #3c3737;
+  }
+`;
+
+export const moveToRight = keyframes`
+  0%{
+    transform: translate(-50%,0);
+  }
+  60%{
+    transform: translate(-50%,0);
+  }
+  75%{
+    transform: translate(30%,0);
+  }
+`;
+
+export const fadeIn = keyframes`
+  0%{
+    opacity: 0;
+  }
+  60%{
+    opacity: 0;
+  }
+  75%{
+    opacity: 1;
+  }
+`;

@@ -2,6 +2,7 @@ import React from 'react';
 import Home from '../Home';
 import Splash from '../Splash';
 
+
 export default class MainComponent extends React.Component {
   constructor(props) {
     super(props);

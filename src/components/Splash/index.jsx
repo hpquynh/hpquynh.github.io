@@ -8,11 +8,13 @@ import {
 type Props = {
   onClick: Function,
 }
+type State = {
+  total: number,
+}
 
-
-export default class SplashComponent extends React.PureComponent<Props> {
-  constructor(props) {
-    super(props);
+export default class SplashComponent extends React.PureComponent<Props, State> {
+  constructor() {
+    super();
     this.state = {
       total: 100,
     };

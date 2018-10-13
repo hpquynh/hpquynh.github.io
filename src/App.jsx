@@ -8,10 +8,11 @@ import { theme } from './vars/theme';
 import { GlobalStyle } from './styles/style';
 import MainComponent from './components/Main';
 import ProjectComponent from './components/Project';
+import AnimatedComponent from './components/AnimatedComponent';
 
 WebFont.load({
   google: {
-    families: ['Montserrat:300,400,500&subset=vietnamese'],
+    families: ['Cousine:400,700&amp;subset=vietnamese', 'Montserrat:300,400,500&subset=vietnamese'],
   },
 });
 
@@ -22,10 +23,12 @@ function App() {
         <ThemeProvider theme={theme}>
           <main>
             <GlobalStyle />
-            <Switch>
-              <Route path="/" component={MainComponent} exact />
-              <Route path="/project" component={ProjectComponent} />
-            </Switch>
+            <AnimatedComponent>
+              <Switch>
+                <Route path="/" component={MainComponent} exact />
+                <Route path="/project" component={ProjectComponent} />
+              </Switch>
+            </AnimatedComponent>
           </main>
         </ThemeProvider>
       </BrowserRouter>

@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 export function displayFlex(direction = 'row', justify = 'flex-start', align = 'flex-start') {
   return `
     display: flex;
-    flow-direction: ${direction};
+    flex-direction: ${direction};
     justify-content: ${justify};
     align-items: ${align};
   `;
