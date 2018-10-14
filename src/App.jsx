@@ -15,25 +15,49 @@ WebFont.load({
     families: ['Cousine:400,700&amp;subset=vietnamese', 'Montserrat:300,400,500&subset=vietnamese'],
   },
 });
+class App extends React.Component {
+  state = {
+    loading: true,
+  };
 
-function App() {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <main>
-            <GlobalStyle />
-            <AnimatedComponent>
-              <Switch>
-                <Route path="/" component={MainComponent} exact />
-                <Route path="/project" component={ProjectComponent} />
-              </Switch>
-            </AnimatedComponent>
-          </main>
-        </ThemeProvider>
-      </BrowserRouter>
-    </Provider>
-  );
+  componentDidMount() {
+    setTimeout(() => this.setState({ loading: false }), 1500);
+  }
+
+  render() {
+    const { loading } = this.state;
+
+    if (loading) {
+      const divStyle = {
+        background: 'linear-gradient(to top,#1e2e37 0%,#050608 100%)',
+        height: '100vh',
+        margin: '-8px',
+        padding: '0',
+      };
+
+      return (
+        <div style={divStyle}>Loading...</div>
+      );
+    }
+
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <main>
+              <GlobalStyle />
+              <AnimatedComponent>
+                <Switch>
+                  <Route path="/" component={MainComponent} exact />
+                  <Route path="/project" component={ProjectComponent} />
+                </Switch>
+              </AnimatedComponent>
+            </main>
+          </ThemeProvider>
+        </BrowserRouter>
+      </Provider>
+    );
+  }
 }
 
 export default App;

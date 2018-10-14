@@ -9,6 +9,7 @@ export default class HomeComponent extends React.PureComponent {
     this.state = {
       scrollY: 0,
       isAnimated: false,
+      count: 0,
     };
   }
 
@@ -22,13 +23,18 @@ export default class HomeComponent extends React.PureComponent {
 
   handleScroll = () => {
     const y = window.scrollY;
-    let isAnimated;
-    if (y >= window.innerHeight && y <= window.innerHeight * 2) {
+    let { isAnimated, count } = this.state;
+    if (isAnimated) {
+      count += 1;
+    } else if ((y === window.innerHeight) && (count === 0)) {
       isAnimated = true;
-    } 
+      count += 1;
+    }
+
     this.setState({
       scrollY: y,
       isAnimated,
+      count,
     });
   };
 

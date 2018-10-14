@@ -17,7 +17,10 @@ const Avatar = styled.svg`
     stroke:none;
   }
   .mask{
-    fill:white;
+    fill: white;
+  }
+  use{
+    fill: #f5f5f5;
   }
   .stroke1{
     fill:#FFF;

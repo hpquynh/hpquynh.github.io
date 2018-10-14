@@ -22,7 +22,6 @@ const randomStar = () => {
 
 export const SplashSection = styled.section`
   background-image: linear-gradient(to top, ${props => props.theme.color.dark} 0%, ${props => props.theme.color.darker} 100%);
-
   background-attachment:fixed;
   transition: background .2s ease;
   display: flex;
@@ -109,7 +108,7 @@ export const Logo = styled.span`
   height: 200px;
   box-sizing: content-box;
   animation: ${fadeInRotate} 1s linear 16s backwards;
-  animation-delay: 2s;
+  animation-delay: 1s;
   &:after{
     content: '${strBeforeHover}';
     position: absolute;

@@ -20,7 +20,7 @@ export default class WorkFrame extends React.PureComponent<Props> {
 }
 
 const FrameBlock = styled.div`
-  margin-top: 30px;
+  margin-top: 40px;
   width: 300px;
   height: 400px;
   max-width: 100%;
