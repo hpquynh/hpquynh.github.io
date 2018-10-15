@@ -1,14 +1,32 @@
 import { css } from 'styled-components';
+import { rem } from 'polished';
 
 export function displayFlex(direction = 'row', justify = 'flex-start', align = 'flex-start') {
   return `
     display: flex;
-    flex-direction: ${direction};
+    flex-flow: ${direction};
     justify-content: ${justify};
     align-items: ${align};
   `;
 }
-
+export function buttonStyle(background = '#000', color = '#fff', font = '13px', padding = '5px') {
+  return `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: ${props => props.theme.font.second};
+    background: ${background};
+    color: ${color};
+    font-size: ${font};
+    font-size: ${rem(font)};
+    padding: ${padding};
+    cursor: pointer;
+    transition: all .2s ease;
+    &:hover{
+      opacity: 0.8;
+    }
+  `;
+}
 const sizes = {
   xs: '575px',
   sm: '576px',

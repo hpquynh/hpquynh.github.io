@@ -101,12 +101,10 @@ export const backgroundChange = keyframes`
   40% {
     background-color: #fffe6a;
   }
-  45%{
+  50%{
     background-color: #f5f5f5;
   }
-  100%{
-    background-color: #f5f5f5;
-  }
+ 
 `;
 
 export const colorChange = keyframes`
@@ -125,22 +123,20 @@ export const colorChange = keyframes`
   40% {
     color: #8e91f4;
   }
-  45%{
+  50%{
     color: #3c3737;
   }
-  100%{
-    color: #3c3737;
-  }
+ 
 `;
 
 export const moveToRight = keyframes`
   0%{
     transform: translate(-50%,0);
   }
-  60%{
+  45%{
     transform: translate(-50%,0);
   }
-  75%{
+  55%{
     transform: translate(30%,0);
   }
 `;
@@ -149,10 +145,19 @@ export const fadeIn = keyframes`
   0%{
     opacity: 0;
   }
-  60%{
+  50%{
     opacity: 0;
   }
-  75%{
+  60%{
     opacity: 1;
+  }
+`;
+
+export const kira = keyframes`
+  0%{
+    border-color: #bfffff;
+  }
+  70%{
+    border-color: #fffc75;
   }
 `;

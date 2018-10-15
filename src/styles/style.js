@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
      * {
       font-size: 13px;
       font-size: ${rem('13px')};
+      font-weight: 300;
       color: ${props => props.theme.color.grey};
       line-height: 1.4;
      }

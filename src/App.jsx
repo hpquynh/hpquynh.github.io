@@ -21,7 +21,8 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    setTimeout(() => this.setState({ loading: false }), 1500);
+    // setTimeout(() => this.setState({ loading: false }), 1500);
+    this.setState({ loading: false });
   }
 
   render() {

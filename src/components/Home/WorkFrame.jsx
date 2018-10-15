@@ -44,11 +44,10 @@ const FrameBlock = styled.div`
     height: auto;
   }
   ${props => props.isAnimated && css`
-    animation: ${backgroundChange} 3s 1s ease, ${moveToRight} 7s 0s ease;
+    animation: ${backgroundChange} 3s ease, ${moveToRight} 6s ease;
     transform: translate(30%,0);
     &:before{
-      animation: ${colorChange} 4s ease;
-      animation-delay: 2s;
+      animation: ${colorChange} 3s ease;
     }
   `}
 `;
