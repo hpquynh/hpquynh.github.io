@@ -13,7 +13,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://hpquynh.github.io/portfolio",
+  "homepage": "https://hpquynh.github.io/portfolio/",
   "dependencies": {
     "axios": "^0.18.0",
     "date-fns": "^1.29.0",
