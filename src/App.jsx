@@ -8,7 +8,7 @@ import { theme } from './vars/theme';
 import { GlobalStyle } from './styles/style';
 import MainComponent from './components/Main';
 import ProjectComponent from './components/Project';
-import AnimatedComponent from './components/AnimatedComponent';
+// import AnimatedComponent from './components/AnimatedComponent';
 
 WebFont.load({
   google: {
@@ -47,12 +47,10 @@ class App extends React.Component {
           <ThemeProvider theme={theme}>
             <main>
               <GlobalStyle />
-              <AnimatedComponent>
-                <Switch>
-                  <Route path="/" component={MainComponent} exact />
-                  <Route path="/project" component={ProjectComponent} />
-                </Switch>
-              </AnimatedComponent>
+              <Switch>
+                <Route path="/" component={MainComponent} exact />
+                <Route path="/project" component={ProjectComponent} />
+              </Switch>
             </main>
           </ThemeProvider>
         </BrowserRouter>
