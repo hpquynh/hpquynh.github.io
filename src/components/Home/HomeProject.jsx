@@ -22,7 +22,7 @@ export default class HomeProject extends React.PureComponent<Props> {
               I've worked as a full-time <Title>Frontend Developer</Title>
               and a freelance &ensp;<Title>UI designer</Title>for over two years.
             </Des>
-            <Button>Take a look my works</Button>
+            <Button>Take a look at my works</Button>
           </FadeIn>
           <WorkFrame isAnimated={isAnimated} image={objImg} />
         </MainContent>
