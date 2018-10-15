@@ -7,13 +7,13 @@
   "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "NODE_PATH=./src react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b master -d build"
   },
-  "homepage": "https://hpquynh.github.io/portfolio/",
+  "homepage": "https://hpquynh.github.io/portfolio",
   "dependencies": {
     "axios": "^0.18.0",
     "date-fns": "^1.29.0",
@@ -43,6 +43,7 @@
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0",
     "babel-preset-flow": "^6.23.0",
+    "dotenv": "^6.1.0",
     "eslint-config-airbnb": "^17.1.0",
     "flow-bin": "^0.82.0"
   }

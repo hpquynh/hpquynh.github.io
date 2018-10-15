@@ -48,7 +48,7 @@ class App extends React.Component {
             <main>
               <GlobalStyle />
               <Switch>
-                <Route path="/" component={MainComponent} exact />
+                <Route path="/" component={MainComponent} />
                 <Route path="/project" component={ProjectComponent} />
               </Switch>
             </main>
