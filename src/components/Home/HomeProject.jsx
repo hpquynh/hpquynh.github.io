@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Container, NavTitle } from './style';
+import { Container, NavTitle, MobileMainContent } from './style';
 import { displayFlex, buttonStyle } from '../../styles/utils';
 import objImg from '../../images/mockup.png';
 import WorkFrame from './WorkFrame';
@@ -26,9 +26,7 @@ export default class HomeProject extends React.PureComponent<Props> {
           </FadeIn>
           <WorkFrame isAnimated={isAnimated} image={objImg} />
         </MainContent>
-
         <NavTitle title={navTitle}>{navTitle}</NavTitle>
-
       </Container>
     );
   }
@@ -37,9 +35,10 @@ const MainContent = styled.div`
   ${displayFlex('row', 'center', 'center')}
   position: relative;
   padding: 15px;
+  ${MobileMainContent}
 `;
 const Des = styled.div`
-  ${displayFlex('row wrap', 'flex-start', 'center')}
+ 
 `;
 const Title = styled.div`
     font-size: 28px;
@@ -74,3 +73,4 @@ const Button = styled.a`
   border: 3px solid #bfffff;
   animation: ${kira} 1s ease infinite;
 `;
+

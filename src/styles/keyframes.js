@@ -111,7 +111,7 @@ export const colorChange = keyframes`
   0% {
     color: #3c3737;
   }
-  5% {
+  10% {
     color: #fffe6a;
   }
   15% {
@@ -133,9 +133,6 @@ export const moveToRight = keyframes`
   0%{
     transform: translate(-50%,0);
   }
-  45%{
-    transform: translate(-50%,0);
-  }
   55%{
     transform: translate(30%,0);
   }
@@ -146,7 +143,7 @@ export const fadeIn = keyframes`
     opacity: 0;
   }
   50%{
-    opacity: 0;
+    opacity: 1;
   }
   60%{
     opacity: 1;
@@ -159,5 +156,24 @@ export const kira = keyframes`
   }
   70%{
     border-color: #fffc75;
+  }
+`;
+
+export const slideInDown = keyframes`
+ from {
+    transform: translate3d(0, 500%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+`;
+export const slideLeft = keyframes`
+ 0%{
+    width: 0;
+  }
+  70%{
+    width: 40%;
   }
 `;

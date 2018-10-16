@@ -40,14 +40,15 @@ const FrameBlock = styled.div`
     color: ${props => props.theme.color.shadow};
   }
   img{
-    width: 120%;
-    height: auto;
+    width: 360px;
+    min-height: 198px;
+    
   }
   ${props => props.isAnimated && css`
-    animation: ${backgroundChange} 3s ease, ${moveToRight} 6s ease;
+    animation: ${backgroundChange} 6s ease, ${moveToRight} 3s ease;
     transform: translate(30%,0);
     &:before{
-      animation: ${colorChange} 3s ease;
+      animation: ${colorChange} 6s ease;
     }
   `}
 `;

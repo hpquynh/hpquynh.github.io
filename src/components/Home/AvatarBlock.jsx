@@ -11,7 +11,7 @@ const Avatar = styled.svg`
   height: auto;
   transition: all .6s ease;
   will-change: transform;
-  transform: translate(-${props => props.scrollY}px, -${props => props.scrollY}%);
+  //transform: translate(-${props => props.scrollY}px, -${props => props.scrollY}%);
  .frame{
     fill:none;
     stroke:none;

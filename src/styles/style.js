@@ -4,7 +4,13 @@ import { rem, normalize } from 'polished';
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
   html{
-    min-height: 100vh;
+    box-sizing: border-box;
+    font-size: 100%;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100vw;
+    height: auto;
+    position: relative;
   }
   html:not(.wf-active){
     font-family: ${props => props.theme.font.fallback};
@@ -14,10 +20,12 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${props => props.theme.font.main}
   }
   body{
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
     overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
      * {
       font-size: 13px;
       font-size: ${rem('13px')};
@@ -32,4 +40,5 @@ export const GlobalStyle = createGlobalStyle`
         text-align: right;
      }
   }
+ 
 `;

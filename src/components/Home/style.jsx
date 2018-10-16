@@ -1,20 +1,12 @@
 
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { displayFlex } from '../../styles/utils';
+import { displayFlex, mediaMax } from '../../styles/utils';
 
-export const Section = styled.section`
-  background-color: transparent;
-  width: 100vw;
-  min-height: 100vh;
-  position: relative;
-  ${displayFlex('row', 'center', 'flex-start')}
-`;
 export const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
- 
 `;
 export const FlexColumn = styled.div`
  ${displayFlex('column', 'flex-start', 'flex-start')}
@@ -50,4 +42,10 @@ export const NavTitle = styled.div`
     left: 0;
     top: 0;
   }
+`;
+
+export const MobileMainContent = css`
+  ${mediaMax.sm`
+      flex-direction: column !important;
+  `}
 `;

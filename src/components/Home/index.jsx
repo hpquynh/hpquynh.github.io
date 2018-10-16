@@ -1,15 +1,16 @@
 import React from 'react';
 import HomeTop from './HomeTop';
 import HomeProject from './HomeProject';
+import HomeAbout from './HomeAbout';
+import HomeContact from './HomeContact';
 import Navigation from '../Navigation';
 
 export default class HomeComponent extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      scrollY: 0,
       isAnimated: false,
-      count: 0,
+      isFinished: false,
     };
   }
 
@@ -23,29 +24,35 @@ export default class HomeComponent extends React.PureComponent {
 
   handleScroll = () => {
     const y = window.scrollY;
-    let { isAnimated, count } = this.state;
+    let count = 0;
+    let { isAnimated, isFinished } = this.state;
     if (isAnimated) {
       count += 1;
-    } else if ((y === window.innerHeight) && (count === 0)) {
+    } else if ((y > window.innerHeight / 1.5) && (count === 0)) {
       isAnimated = true;
       count += 1;
     }
-
+    if (y >= window.innerHeight * 3) {
+      isFinished = true;
+    } else {
+      isFinished = false;
+    }
     this.setState({
-      scrollY: y,
       isAnimated,
-      count,
+      isFinished,
     });
   };
 
   render() {
-    const { scrollY, isAnimated } = this.state;
-
+    const { isAnimated, isFinished } = this.state;
+    console.log(`hi: ${isFinished}`);
     return (
       <div>
-        <Navigation />
-        <HomeTop scrollY={scrollY} navTitle="> Intro" />
-        <HomeProject isAnimated={isAnimated} scrollY={scrollY} navTitle="> All Works" />
+        <Navigation isFinished={isFinished} />
+        <HomeTop navTitle="> Intro" />
+        <HomeProject isAnimated={isAnimated} navTitle="> All Works" />
+        <HomeAbout isAnimated={isAnimated} navTitle="> About me" />
+        <HomeContact navTitle="> Contact me" />
       </div>
     );
   }

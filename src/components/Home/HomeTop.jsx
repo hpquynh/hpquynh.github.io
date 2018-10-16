@@ -105,7 +105,7 @@ const Name = styled.h1`
   margin: 20px 0 0 0;
   transition: all .4s ease;
   will-change: transform;
-  transform: translate(0px, -${props => props.scrollY}%);
+  //transform: translate(0px, -${props => props.scrollY}%);
   letter-spacing: 6px;
   ${ColorfulText}
   &:after {
