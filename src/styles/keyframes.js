@@ -177,3 +177,22 @@ export const slideLeft = keyframes`
     width: 40%;
   }
 `;
+
+export const openUp = keyframes`
+ from{
+     border-right-width: 100vw;
+ }
+ to{
+  border-right-width: 0;
+ }
+`;
+
+export const openDown = keyframes`
+ from{
+     border-left-width: 100vw;
+ }
+ to{
+     border-left-width: 0;
+       
+ }
+`;

@@ -4,6 +4,7 @@ import HomeProject from './HomeProject';
 import HomeAbout from './HomeAbout';
 import HomeContact from './HomeContact';
 import Navigation from '../Navigation';
+import { AnimatedWrapper } from './style';
 
 export default class HomeComponent extends React.PureComponent {
   constructor() {
@@ -45,15 +46,14 @@ export default class HomeComponent extends React.PureComponent {
 
   render() {
     const { isAnimated, isFinished } = this.state;
-    console.log(`hi: ${isFinished}`);
     return (
-      <div>
+      <AnimatedWrapper>
         <Navigation isFinished={isFinished} />
         <HomeTop navTitle="> Intro" />
         <HomeProject isAnimated={isAnimated} navTitle="> All Works" />
         <HomeAbout isAnimated={isAnimated} navTitle="> About me" />
         <HomeContact navTitle="> Contact me" />
-      </div>
+      </AnimatedWrapper>
     );
   }
 }

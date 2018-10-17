@@ -15,7 +15,7 @@ function AnimatedComponent({ location, children }: Props) {
       <TransitionGroup className="transition-group">
         <CSSTransition
           key={location.key}
-          timeout={{ enter: 500, exit: 500 }}
+          timeout={{ enter: 300, exit: 300 }}
           classNames="fade"
         >
           <section className="route-section">
@@ -51,6 +51,7 @@ const Wrapper = styled.div`
     width: 100%;
     top: 0;
     left: 0;
+   
   }
 `;
 

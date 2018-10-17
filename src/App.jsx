@@ -6,9 +6,10 @@ import WebFont from 'webfontloader';
 import store from './store/rootStore';
 import { theme } from './vars/theme';
 import { GlobalStyle } from './styles/style';
-import MainComponent from './components/Main';
 import ProjectComponent from './components/Project';
-// import AnimatedComponent from './components/AnimatedComponent';
+import Error404 from './components/Error404';
+import AnimatedComponent from './components/AnimatedComponent';
+import MainComponent from './components/Main';
 
 WebFont.load({
   google: {
@@ -16,40 +17,35 @@ WebFont.load({
   },
 });
 class App extends React.Component {
-  state = {
-    loading: true,
-  };
+  constructor() {
+    super();
+    this.state = {
+      isSplashing: true,
+    };
+  }
 
-  componentDidMount() {
-    setTimeout(() => this.setState({ loading: false }), 1500);
+  handleClick() {
+    const { isSplashing } = this.state;
+    this.setState({
+      isSplashing: !isSplashing,
+    });
   }
 
   render() {
-    const { loading } = this.state;
-
-    if (loading) {
-      const divStyle = {
-        background: 'linear-gradient(to top,#1e2e37 0%,#050608 100%)',
-        height: '100vh',
-        margin: '-8px',
-        padding: '0',
-      };
-
-      return (
-        <div style={divStyle}>Loading...</div>
-      );
-    }
-
+    const { isSplashing } = this.state;
     return (
       <Provider store={store}>
         <BrowserRouter>
           <ThemeProvider theme={theme}>
             <main>
-              <GlobalStyle />
-              <Switch>
-                <Route path="/" component={MainComponent} />
-                <Route path="/project" component={ProjectComponent} />
-              </Switch>
+              <AnimatedComponent>
+                <GlobalStyle />
+                <Switch>
+                  <Route path="/" component={() => <MainComponent action={() => this.handleClick()} isSplashing={isSplashing} />} exact />
+                  <Route path="/project" component={ProjectComponent} />
+                  <Route path="*" component={Error404} />
+                </Switch>
+              </AnimatedComponent>
             </main>
           </ThemeProvider>
         </BrowserRouter>

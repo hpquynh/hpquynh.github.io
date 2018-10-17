@@ -3,6 +3,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { moveToRight, colorChange, backgroundChange } from '../../styles/keyframes';
+import {mediaMax} from "../../styles/utils";
 
 type Props = {
   image: string,
@@ -50,5 +51,8 @@ const FrameBlock = styled.div`
     &:before{
       animation: ${colorChange} 6s ease;
     }
+  `}
+  ${mediaMax.sm`
+    transform: translate(0,0);
   `}
 `;

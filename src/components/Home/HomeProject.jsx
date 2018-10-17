@@ -1,8 +1,9 @@
 // @flow
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { Container, NavTitle, MobileMainContent } from './style';
-import { displayFlex, buttonStyle } from '../../styles/utils';
+import { Container, NavTitle } from './style';
+import { displayFlex, buttonStyle, mediaMax } from '../../styles/utils';
 import objImg from '../../images/mockup.png';
 import WorkFrame from './WorkFrame';
 import { fadeIn, kira } from '../../styles/keyframes';
@@ -22,7 +23,7 @@ export default class HomeProject extends React.PureComponent<Props> {
               I've worked as a full-time <Title>Frontend Developer</Title>
               and a freelance &ensp;<Title>UI designer</Title>for over two years.
             </Des>
-            <Button>Take a look at my works</Button>
+            <Link className="button" to="/project"><ButtonText>Take a look at my works</ButtonText></Link>
           </FadeIn>
           <WorkFrame isAnimated={isAnimated} image={objImg} />
         </MainContent>
@@ -35,7 +36,13 @@ const MainContent = styled.div`
   ${displayFlex('row', 'center', 'center')}
   position: relative;
   padding: 15px;
-  ${MobileMainContent}
+  ${mediaMax.sm`
+    flex-direction: column !important;
+  `}
+ 
+  .button{
+    text-decoration: none;
+  }
 `;
 const Des = styled.div`
  
@@ -45,7 +52,7 @@ const Title = styled.div`
     display: block;
     font-family: ${props => props.theme.font.second};
     text-transform: uppercase;
-     margin: 5px 0;
+    margin: 5px 0;
     padding: 5px;
     font-weight: 400;
     &:nth-of-type(1){
@@ -65,12 +72,16 @@ const FadeIn = styled.div`
     animation: ${fadeIn} 6s ease;
     opacity: 1;
   `}
+  ${mediaMax.sm`
+    width: 100%;
+    max-width: 100%;
+   `}
 `;
-const Button = styled.a`
+
+const ButtonText = styled.span`
   margin-top: 30px;
   ${buttonStyle('#3c3737', '#fff', '14px', '12px 10px 10px')}
   line-height: 1;
   border: 3px solid #bfffff;
   animation: ${kira} 1s ease infinite;
 `;
-

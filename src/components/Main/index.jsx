@@ -1,25 +1,15 @@
+// @flow
 import React from 'react';
 import Home from '../Home';
 import Splash from '../Splash';
 
-
-export default class MainComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSplashing: true,
-    };
-  }
-
-  handleClick() {
-    const { isSplashing } = this.state;
-    this.setState({
-      isSplashing: !isSplashing,
-    });
-  }
-
+type Props = {
+  isSplashing: boolean,
+  action: Function,
+}
+export default class MainComponent extends React.Component<Props> {
   render() {
-    const { isSplashing } = this.state;
-    return isSplashing ? <Splash onClick={() => this.handleClick()} /> : <Home />;
+    const { isSplashing, action } = this.props;
+    return isSplashing ? <Splash action={action} /> : <Home />;
   }
 }

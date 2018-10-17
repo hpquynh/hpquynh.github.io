@@ -6,7 +6,7 @@ import {
 } from './style';
 
 type Props = {
-  onClick: Function,
+  action: Function,
 }
 type State = {
   total: number,
@@ -17,12 +17,29 @@ export default class SplashComponent extends React.PureComponent<Props, State> {
     super();
     this.state = {
       total: 100,
+      isLoading: true,
     };
   }
 
+  componentDidMount() {
+    setTimeout(() => this.setState({ isLoading: false }), 1000);
+  }
+
   render() {
-    const { onClick } = this.props;
-    const { total } = this.state;
+    const { action } = this.props;
+    const { total, isLoading } = this.state;
+    if (isLoading) {
+      const divStyle = {
+        background: 'linear-gradient(to top,#1e2e37 0%,#050608 100%)',
+        height: '100vh',
+        margin: '0',
+        padding: '0',
+      };
+
+      return (
+        <div style={divStyle}></div>
+      );
+    }
     return (
       <SplashSection>
         <Stars>
@@ -30,7 +47,7 @@ export default class SplashComponent extends React.PureComponent<Props, State> {
             times(total, i => <Star key={i} />)
           }
         </Stars>
-        <LogoButton onClick={onClick}>
+        <LogoButton onClick={action}>
           <Logo>
             <Background />
             <Child1 />

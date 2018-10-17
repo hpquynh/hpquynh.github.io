@@ -74,6 +74,7 @@ const MainContent = styled.div`
   height: auto;
   padding: 0;
   position: relative;
+  box-sizing: border-box;
   &:after{
     content: '';
     position: absolute;
@@ -85,19 +86,30 @@ const MainContent = styled.div`
     background-attachment: fixed;
     z-index: 0;
   }
-  ${mediaMax.sm`flex-direction: column;`}
+  
+  ${mediaMax.md`padding: 15px;`}
+  ${mediaMax.sm`flex-direction: column; justify-content: center; padding: 15px;`}
 `;
 const AboutMe = styled.div`
   ${displayFlex('column nowrap', 'flex-start', 'flex-start')}
   width: 30vw;
   height: auto;
   border: 2px dashed ${props => props.theme.color.altermoon};
-  padding: 10px;
+  padding: 0;
   margin-right: 20px;
   background-color: white;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  box-sizing: border-box;
+  ${mediaMax.md`
+    width: 48%;
+  `}
+  ${mediaMax.sm`
+    width: 100%;
+    margin-right: 0;
+  `}
+  
 `;
 const Skills = styled.div`
   width: 30vw;
@@ -106,6 +118,14 @@ const Skills = styled.div`
   font-family: ${props => props.theme.font.second};
   font-weight: 500px;
   z-index: 1;
+  box-sizing: border-box;
+   ${mediaMax.md`
+    width: 48%;
+  `}
+  ${mediaMax.sm`
+    width: 100%;
+    margin-right: 0;
+  `}
 `;
 const SkillList = styled.ul`
   list-style: none;
@@ -134,6 +154,7 @@ const Des = styled.div`
 const Item = styled.p`
   font-size: 14px;
   margin: 5px 0;
+  padding: 20px;
 `;
 
 

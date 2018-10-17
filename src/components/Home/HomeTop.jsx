@@ -49,7 +49,7 @@ const WaveWrapper = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
 `;
 const SmallWave = styled.svg`
   max-width: 100vw;
@@ -58,6 +58,7 @@ const SmallWave = styled.svg`
   position: absolute;
   top: -5px;
   right: 0;
+  z-index: -1;
   .wave-wrap{
     stroke: none;
     stroke-width: 1;
@@ -75,11 +76,13 @@ const Wave = styled.svg`
     width: 55vw;
     top: 30%;
     animation: ${wave1} 20s cubic-bezier(0.42, 0.0, 0.58, 1.0) infinite;
+    z-index: -1;
   }
   &:nth-of-type(2){
     width: 40vw;
     top: 43%;
     animation: ${wave2} 25s cubic-bezier(0.25,0.1,0.25,1) -.125s infinite;
+    z-index: 0;
   }
   .wave{
     fill-rule: evenodd;
