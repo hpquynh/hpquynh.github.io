@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import {
   IconFacebook, IconTwitter, IconInstagram, IconLinkedin,
-} from '../styles/icons';
-import { displayFlex } from '../styles/utils';
+} from '../../styles/icons';
+import { displayFlex } from '../../styles/utils';
 
 const SocialList = styled.div`
   position: relative;
   padding: 0;
    ${displayFlex('row', 'flex-end', 'flex-start')}
    position: fixed;
-   transform: translate(calc(98vw - 160px),0);
+   transform: translate(calc(98vw - 140px),0);
    svg{
     width: 25px;
     height: auto;

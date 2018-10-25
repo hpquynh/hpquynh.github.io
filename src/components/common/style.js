@@ -1,7 +1,9 @@
 
 import styled, { css } from 'styled-components';
 import { displayFlex, fontSize } from '../../styles/utils';
-import { openUp, openDown, fadeIn } from '../../styles/keyframes';
+import {
+  slideBgLeft, slideBgRight, appearIn,
+} from '../../styles/keyframes';
 
 export const Container = styled.div`
   position: relative;
@@ -51,35 +53,67 @@ export const NavTitle = styled.div`
   `}
 `;
 
+// export const AnimatedWrapper = styled.div`
+//   position: relative;
+//   > * {
+//     animation: ${fadeIn} 1.5s ease;
+//   }
+//   &:before, &:after{
+//     content: '';
+//     position: fixed;
+//     z-index: 4;
+//     transition: all .5s ease-in-out;
+//   }
+//   &:before{
+//     width: 0;
+//     height: 0;
+//     border-left: 0 solid transparent;
+//     border-right: 0 solid transparent;
+//     border-top: 100vh solid #1e2e37;
+//     animation: ${openUp} 0.5s ease;
+//     left: 0;
+//     top: 0;
+//   }
+//   &:after{
+//     width: 0;
+//     height: 0;
+//     border-left: 0 solid transparent;
+//     border-right: 0 solid transparent;
+//     border-bottom: 100vh solid #1e2e37;
+//     animation: ${openDown} 0.5s ease;
+//     top: 0;
+//     right: 0;
+//   }
+// `;
+
 export const AnimatedWrapper = styled.div`
   position: relative;
+  transition: all .5s ease;
   > * {
-    animation: ${fadeIn} 1.5s ease;
+    animation: ${appearIn} 1s ease; 
   }
   &:before, &:after{
     content: '';
     position: fixed;
+    will-change: transform;
+    top: 0;
+    bottom: 0;
     z-index: 4;
-    transition: all .5s ease-in-out;
+    opacity: 1;
+    width: 50%;
+    height: 100%;
+    background-color: ${props => props.theme.color.dark};
+    background-image: linear-gradient(to top, ${props => props.theme.color.dark} 0%, ${props => props.theme.color.darker} 100%);
   }
   &:before{
-    width: 0;
-    height: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
-    border-top: 100vh solid #1e2e37;
-    animation: ${openUp} 0.5s ease;
     left: 0;
-    top: 0;
+    right: auto;
+    animation: ${slideBgLeft} 0.5s forwards; 
   }
   &:after{
-    width: 0;
-    height: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
-    border-bottom: 100vh solid #1e2e37;
-    animation: ${openDown} 0.5s ease;
-    top: 0;
+    left: auto;
     right: 0;
+    animation: ${slideBgRight} 0.6s forwards;
   }
+ 
 `;

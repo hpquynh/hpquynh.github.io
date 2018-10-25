@@ -3,7 +3,7 @@ import HomeTop from './HomeTop';
 import HomeProject from './HomeProject';
 import HomeAbout from './HomeAbout';
 import HomeContact from './HomeContact';
-import Navigation from '../Navigation';
+import Navigation from '../common/Navigation';
 import { AnimatedWrapper } from '../common/style';
 
 export default class HomeComponent extends React.PureComponent {

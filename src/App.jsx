@@ -7,9 +7,9 @@ import store from './store/rootStore';
 import { theme } from './vars/theme';
 import { GlobalStyle } from './styles/style';
 import ProjectComponent from './components/Project';
-import LoginComponent from './components/Login';
+// import LoginComponent from './components/Login';
 import Error404 from './components/Error404';
-import AnimatedComponent from './components/AnimatedComponent';
+import AnimatedComponent from './components/common/AnimatedComponent';
 import MainComponent from './components/Main';
 import { database } from './firebase';
 
@@ -55,7 +55,7 @@ class App extends React.Component {
                 <Switch>
                   <Route path="/" component={() => <MainComponent action={() => this.handleClick()} isSplashing={isSplashing} />} exact />
                   <Route path="/project" component={ProjectComponent} />
-                  <Route path="/login" component={LoginComponent} />
+                  {/*<Route path="/login" component={LoginComponent} />*/}
                   <Route path="*" component={Error404} />
                 </Switch>
               </AnimatedComponent>

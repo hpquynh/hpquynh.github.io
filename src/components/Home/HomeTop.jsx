@@ -9,38 +9,6 @@ import avtImg from '../../images/avatar.png';
 import { displayFlex, mediaMax, fontSize } from '../../styles/utils';
 import { wave1, wave2 } from '../../styles/keyframes';
 
-type Props = {
-  navTitle: string,
-  scrollY: number
-}
-export default class HomeTop extends React.PureComponent<Props> {
-  render() {
-    const { scrollY, navTitle } = this.props;
-    return (
-      <Container>
-        <WaveWrapper>
-          <SmallWaveBlock />
-          <WaveBlock />
-        </WaveWrapper>
-        <FlexWrapper>
-          <MainContent>
-            <AvatarBlock scrollY={scrollY / 9} image={avtImg} />
-            <FlexColumn className="p-l-20">
-              <Name scrollY={scrollY / 5}>Quynh HP.</Name>
-              <TextRight>A Frontend developer - A UX/UI designer - A Dreamer</TextRight>
-              <TextRight>Not unique . Just different</TextRight>
-              <TextRight>Danang, VN</TextRight>
-            </FlexColumn>
-          </MainContent>
-        </FlexWrapper>
-        <NavTitle title={navTitle}>
-          <span title=">">&gt;</span>
-          {navTitle}
-        </NavTitle>
-      </Container>
-    );
-  }
-}
 const MainContent = styled.div`
   ${displayFlex('row', 'center', 'center')}
   position: relative;
@@ -168,3 +136,36 @@ const SmallWaveBlock = () => (
     </g>
   </SmallWave>
 );
+
+type Props = {
+  navTitle: string,
+  scrollY: number
+}
+export default class HomeTop extends React.PureComponent<Props> {
+  render() {
+    const { scrollY, navTitle } = this.props;
+    return (
+      <Container>
+        <WaveWrapper>
+          <SmallWaveBlock />
+          <WaveBlock />
+        </WaveWrapper>
+        <FlexWrapper>
+          <MainContent>
+            <AvatarBlock scrollY={scrollY / 9} image={avtImg} />
+            <FlexColumn className="p-l-20">
+              <Name scrollY={scrollY / 5}>Quynh HP.</Name>
+              <TextRight>A Frontend developer - A UX/UI designer - A Dreamer</TextRight>
+              <TextRight>Not unique . Just different</TextRight>
+              <TextRight>Danang, VN</TextRight>
+            </FlexColumn>
+          </MainContent>
+        </FlexWrapper>
+        <NavTitle title={navTitle}>
+          <span title=">">&gt;</span>
+          {navTitle}
+        </NavTitle>
+      </Container>
+    );
+  }
+}

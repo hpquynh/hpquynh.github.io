@@ -149,7 +149,17 @@ export const fadeIn = keyframes`
     opacity: 1;
   }
 `;
-
+export const appearIn = keyframes`
+  0%{
+    opacity: 0;
+  }
+  60%{
+    opacity: 0;
+  }
+  60%{
+    opacity: 1;
+  }
+`;
 export const kira = keyframes`
   0%{
     border-color: #bfffff;
@@ -195,4 +205,32 @@ export const openDown = keyframes`
      border-left-width: 0;
        
  }
+`;
+export const slideBgLeft = keyframes`
+  0% {
+    -webkit-animation-timing-function: cubic-bezier(0.815, 0.090, 0.885, 0.140);
+  }
+  50% {
+    transform: translateX(-35%) skewX(20deg);
+  }
+  100% {
+    -webkit-animation-timing-function: cubic-bezier(0.815, 0.090, 0.885, 0.140);
+     transform: translateX(-100%);
+  }
+`;
+export const slideBgRight = keyframes`
+  0% {
+    -webkit-animation-timing-function: cubic-bezier(0.815, 0.090, 0.885, 0.140);
+  
+  }
+  50% {
+    transform: translateX(115%) skewX(20deg);
+  }
+  100% {
+    -webkit-animation-timing-function: cubic-bezier(0.815, 0.090, 0.885, 0.140);
+    
+     transform: translateX(200%);
+   
+   
+  }
 `;
