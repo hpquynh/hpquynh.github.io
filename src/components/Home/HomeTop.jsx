@@ -1,13 +1,12 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { rem } from 'polished';
 import {
   ColorfulText, Container, FlexColumn, TextRight, NavTitle,
-} from './style';
+} from '../common/style';
 import AvatarBlock from './AvatarBlock';
 import avtImg from '../../images/avatar.png';
-import { displayFlex } from '../../styles/utils';
+import { displayFlex, mediaMax, fontSize } from '../../styles/utils';
 import { wave1, wave2 } from '../../styles/keyframes';
 
 type Props = {
@@ -23,25 +22,41 @@ export default class HomeTop extends React.PureComponent<Props> {
           <SmallWaveBlock />
           <WaveBlock />
         </WaveWrapper>
-        <MainContent>
-          <AvatarBlock scrollY={scrollY / 9} image={avtImg} />
-          <FlexColumn className="p-l-20">
-            <Name scrollY={scrollY / 5}>Quynh HP.</Name>
-            <TextRight>A Frontend developer - A UX/UI designer - A Dreamer</TextRight>
-            <TextRight>Not unique . Just different</TextRight>
-            <TextRight>Danang, VN</TextRight>
-          </FlexColumn>
-        </MainContent>
-        <NavTitle title={navTitle}>{navTitle}</NavTitle>
+        <FlexWrapper>
+          <MainContent>
+            <AvatarBlock scrollY={scrollY / 9} image={avtImg} />
+            <FlexColumn className="p-l-20">
+              <Name scrollY={scrollY / 5}>Quynh HP.</Name>
+              <TextRight>A Frontend developer - A UX/UI designer - A Dreamer</TextRight>
+              <TextRight>Not unique . Just different</TextRight>
+              <TextRight>Danang, VN</TextRight>
+            </FlexColumn>
+          </MainContent>
+        </FlexWrapper>
+        <NavTitle title={navTitle}>
+          <span title=">">&gt;</span>
+          {navTitle}
+        </NavTitle>
       </Container>
     );
   }
 }
 const MainContent = styled.div`
-  ${displayFlex('row', 'center', 'flex-start')}
+  ${displayFlex('row', 'center', 'center')}
   position: relative;
   height: 100%;
-  padding: 20vh 15px 15px 15px;
+  margin: auto;
+  padding: 0 15px;
+   ${mediaMax.sm`
+    flex-direction: column !important;
+  `}
+`;
+const FlexWrapper = styled.div`
+  display: flex;
+  height: 100vh;
+  * {
+    z-index: 2;
+  }
 `;
 const WaveWrapper = styled.div`
   position: absolute;
@@ -49,7 +64,7 @@ const WaveWrapper = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
+  z-index: 1;
 `;
 const SmallWave = styled.svg`
   max-width: 100vw;
@@ -58,7 +73,7 @@ const SmallWave = styled.svg`
   position: absolute;
   top: -5px;
   right: 0;
-  z-index: -1;
+  z-index: 1;
   .wave-wrap{
     stroke: none;
     stroke-width: 1;
@@ -73,16 +88,16 @@ const Wave = styled.svg`
   left: 0;
   transform: translate3d(0, 0, 0);
   &:nth-of-type(1){
-    width: 55vw;
+    width: 60vw;
     top: 30%;
     animation: ${wave1} 20s cubic-bezier(0.42, 0.0, 0.58, 1.0) infinite;
-    z-index: -1;
+    z-index: 0;
   }
   &:nth-of-type(2){
-    width: 40vw;
+    width: 45vw;
     top: 43%;
     animation: ${wave2} 25s cubic-bezier(0.25,0.1,0.25,1) -.125s infinite;
-    z-index: 0;
+    z-index: 1;
   }
   .wave{
     fill-rule: evenodd;
@@ -101,8 +116,7 @@ const Name = styled.h1`
   text-transform: uppercase;
   text-align: right;
   // text-shadow: -1px -1px 0 ${props => props.theme.color.moon}, 1px -1px 0 ${props => props.theme.color.moon}, -1px 1px 0 ${props => props.theme.color.moon}, 1px 1px 0 ${props => props.theme.color.moon};
-  font-size: 75px;
-  font-size: ${rem('75px')};
+  ${fontSize('75px')}
   font-family: ${props => props.theme.font.second};
   position: relative;
   margin: 20px 0 0 0;

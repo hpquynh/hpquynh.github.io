@@ -1,7 +1,6 @@
 
 import styled, { css } from 'styled-components';
-import { rem } from 'polished';
-import { displayFlex } from '../../styles/utils';
+import { displayFlex, fontSize } from '../../styles/utils';
 import { openUp, openDown, fadeIn } from '../../styles/keyframes';
 
 export const Container = styled.div`
@@ -32,17 +31,24 @@ export const TextRight = styled.div`
   text-align: right;
 `;
 export const NavTitle = styled.div`
-  ${ColorfulText}
   position: absolute;
   right: 25px;
   bottom: 10px;
-  font-size: 25px;
-  font-size: ${rem('25px')};
-  &:after{
-    content: attr(title);
-    left: 0;
-    top: 0;
+  ${fontSize('18px')}
+  span{
+    ${ColorfulText}
+    ${fontSize('25px')}
+    vertical-align: middle;
+    margin-right: 5px;
+    &:after{
+      content: attr(title);
+      left: 0;
+      top: 0;
+    }
   }
+  ${props => props.isDark && css`
+    color: #333;
+  `}
 `;
 
 export const AnimatedWrapper = styled.div`

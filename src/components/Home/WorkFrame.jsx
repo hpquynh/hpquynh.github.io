@@ -1,9 +1,8 @@
 // @flow
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { rem } from 'polished';
 import { moveToRight, colorChange, backgroundChange } from '../../styles/keyframes';
-import {mediaMax} from "../../styles/utils";
+import { mediaMax, fontSize } from '../../styles/utils';
 
 type Props = {
   image: string,
@@ -21,7 +20,6 @@ export default class WorkFrame extends React.PureComponent<Props> {
 }
 
 const FrameBlock = styled.div`
-  margin-top: 40px;
   width: 300px;
   height: 400px;
   max-width: 100%;
@@ -36,8 +34,7 @@ const FrameBlock = styled.div`
     position: absolute;
     top: 30px;
     left: 20px;
-    font-size: 45px;
-    font-size: ${rem('45px')};
+    ${fontSize('45px')}
     color: ${props => props.theme.color.shadow};
   }
   img{

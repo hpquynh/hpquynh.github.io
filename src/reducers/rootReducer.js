@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
-
-function testReducer(state = {}, action) {
-    return state;
-}
+import loginReducer from './loginReducer';
+import projectReducer from './projectReducer';
 
 export const reducers = {
-    test: testReducer,
+  ...loginReducer,
+  ...projectReducer,
 };
 
 export default combineReducers(reducers);

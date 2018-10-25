@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { NavTitle } from './style';
-import { displayFlex, mediaMax } from '../../styles/utils';
+import { NavTitle } from '../common/style';
+import { displayFlex, mediaMax, fontSize } from '../../styles/utils';
 import bgImg from '../../images/doit.svg';
 
 type Props = {
@@ -55,7 +55,9 @@ export default class HomeAbout extends React.PureComponent<Props> {
             </SkillList>
           </Skills>
         </MainContent>
-        <NavTitle title={navTitle}>{navTitle}</NavTitle>
+        <NavTitle isDark="true" title={navTitle}>
+          <span title=">">&gt;</span>{navTitle}
+        </NavTitle>
       </Container>
     );
   }
@@ -65,7 +67,7 @@ export const Container = styled.div`
   width: 100%;
   height: auto;
   min-height: 100vh;
-  background-color: ${props => props.theme.color.lemon};
+  background-color: ${props => props.theme.color.yellow};
 `;
 const MainContent = styled.div`
   ${displayFlex('row', 'flex-end', 'center')}
@@ -134,7 +136,7 @@ const SkillList = styled.ul`
   ${displayFlex('row wrap', 'flex-start', 'flex-start')};
 `;
 const Skill = styled.li`
-  padding: 5px;
+  padding: 5px 5px 2px 5px;
   margin: 3px;
   font-family: ${props => props.theme.font.main};
   color: white;
@@ -150,11 +152,12 @@ const Des = styled.div`
   ${displayFlex('row wrap', 'flex-start', 'center')};
   padding: 5px;
   background: white;
+  color: ${props => props.theme.color.grey};
 `;
 const Item = styled.p`
-  font-size: 14px;
+  ${fontSize('14px')}
   margin: 5px 0;
   padding: 20px;
+  color: ${props => props.theme.color.grey};
 `;
-
 

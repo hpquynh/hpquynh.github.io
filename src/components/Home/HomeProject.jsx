@@ -2,8 +2,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { Container, NavTitle } from './style';
-import { displayFlex, buttonStyle, mediaMax } from '../../styles/utils';
+import { Container, NavTitle } from '../common/style';
+import {
+  displayFlex, buttonStyle, mediaMax, fontSize,
+} from '../../styles/utils';
 import objImg from '../../images/mockup.png';
 import WorkFrame from './WorkFrame';
 import { fadeIn, kira } from '../../styles/keyframes';
@@ -20,14 +22,21 @@ export default class HomeProject extends React.PureComponent<Props> {
         <MainContent>
           <FadeIn isAnimated={isAnimated}>
             <Des>
-              I've worked as a full-time <Title>Frontend Developer</Title>
-              and a freelance &ensp;<Title>UI designer</Title>for over two years.
+              I've worked as a full-time
+              {' '}
+              <Title>Frontend Developer</Title>
+              and a freelance &ensp;
+              <Title>UI designer</Title>
+for over two years.
             </Des>
             <Link className="button" to="/project"><ButtonText>Take a look at my works</ButtonText></Link>
           </FadeIn>
           <WorkFrame isAnimated={isAnimated} image={objImg} />
         </MainContent>
-        <NavTitle title={navTitle}>{navTitle}</NavTitle>
+        <NavTitle title={navTitle}>
+          <span title=">">&gt;</span>
+          {navTitle}
+        </NavTitle>
       </Container>
     );
   }
@@ -35,7 +44,7 @@ export default class HomeProject extends React.PureComponent<Props> {
 const MainContent = styled.div`
   ${displayFlex('row', 'center', 'center')}
   position: relative;
-  padding: 15px;
+  height: 100vh;
   ${mediaMax.sm`
     flex-direction: column !important;
   `}
@@ -48,18 +57,22 @@ const Des = styled.div`
  
 `;
 const Title = styled.div`
-    font-size: 28px;
+    ${fontSize('26px')}
     display: block;
     font-family: ${props => props.theme.font.second};
-    text-transform: uppercase;
     margin: 5px 0;
     padding: 5px;
     font-weight: 400;
+    text-transform: capitalize;
     &:nth-of-type(1){
       background-color: ${props => props.theme.color.lemon};
+      color: ${props => props.theme.color.grey};
+      width: fit-content;
     }
      &:nth-of-type(2){
       background-color: ${props => props.theme.color.sun};
+      color: ${props => props.theme.color.grey};
+      width: fit-content;
     }
 `;
 const FadeIn = styled.div`
@@ -80,8 +93,9 @@ const FadeIn = styled.div`
 
 const ButtonText = styled.span`
   margin-top: 30px;
-  ${buttonStyle('#3c3737', '#fff', '14px', '12px 10px 10px')}
+  ${buttonStyle('#333', '#fff', '18px', '12px 15px 10px')}
   line-height: 1;
-  border: 3px solid #bfffff;
+  border: 4px solid #bfffff;
   animation: ${kira} 1s ease infinite;
+  text-transform: uppercase;
 `;

@@ -34,7 +34,7 @@ const SocialList = styled.div`
    }
    transition: all .5s ease;
    ${props => props.className === 'centered' && css`
-      transform: translate(calc(50vw - 169px),60vh);
+      transform: translate(calc(50vw - 169px),65px);
       a{
         margin: 3px;
         &:hover path{

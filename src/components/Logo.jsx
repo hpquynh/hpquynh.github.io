@@ -1,10 +1,16 @@
+// @flow
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
-export default class Logo extends React.PureComponent {
+type Props = {
+  isFinished: boolean,
+}
+export default class Logo extends React.PureComponent<Props> {
   render() {
+    const { isFinished } = this.props;
+    const positionClass = isFinished ? 'centered' : '';
     return (
-      <LogoItem width="352px" height="351px" viewBox="0 0 352 351">
+      <LogoItem className={positionClass} width="352px" height="351px" viewBox="0 0 352 351">
         <defs />
         <g id="Symbols" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g id="logo">
@@ -22,4 +28,8 @@ export default class Logo extends React.PureComponent {
 const LogoItem = styled.svg`
   width: 40px;
   height: 40px;
+  transition: all .5s ease;
+   ${props => props.className === 'centered' && css`
+      transform: translate(calc(50vw - 38px),0) scale(1.2);
+  `}
 `;

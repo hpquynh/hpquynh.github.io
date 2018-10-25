@@ -12,7 +12,7 @@ export default class Navigation extends React.PureComponent<Props> {
     const { isFinished } = this.props;
     return (
       <Header>
-        <Logo />
+        <Logo isFinished={isFinished} />
         <SocialGroup isFinished={isFinished} />
       </Header>
     );

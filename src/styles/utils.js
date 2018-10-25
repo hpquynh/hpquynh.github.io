@@ -9,6 +9,12 @@ export function displayFlex(direction = 'row', justify = 'flex-start', align = '
     align-items: ${align};
   `;
 }
+export function fontSize(size = '14px') {
+  return `
+    font-size: ${size};
+    font-size: ${rem(size)};
+  `;
+}
 export function buttonStyle(background = '#000', color = '#fff', font = '13px', padding = '5px') {
   return `
     display: flex;
@@ -17,8 +23,8 @@ export function buttonStyle(background = '#000', color = '#fff', font = '13px', 
     font-family: ${props => props.theme.font.second};
     background: ${background};
     color: ${color};
-    font-size: ${font};
-    font-size: ${rem(font)};
+    ${fontSize(font)}
+    ${fontSize(font)}
     padding: ${padding};
     cursor: pointer;
     transition: all .2s ease;

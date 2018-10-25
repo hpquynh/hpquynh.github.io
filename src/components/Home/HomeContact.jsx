@@ -1,9 +1,8 @@
 // @flow
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { rem } from 'polished';
-import { Container, NavTitle } from './style';
-import { displayFlex } from '../../styles/utils';
+import { Container, NavTitle } from '../common/style';
+import { displayFlex, fontSize } from '../../styles/utils';
 
 type Props = {
   navTitle: string
@@ -16,10 +15,20 @@ export default class HomeContact extends React.PureComponent<Props> {
         <MainContent>
           <Des>
             <DesChild>
-              If you want to create something <HighLight className="sun">awesome</HighLight>,
+              If you want to create something
+              {' '}
+              <HighLight className="sun">awesome</HighLight>
+,
               you’re very welcome to contact me.
             </DesChild>
-            <DesChild>I’m available for <HighLight className="moon">freelance projects</HighLight> and <HighLight className="lemon">full-time employment</HighLight>.</DesChild>
+            <DesChild>
+I’m available for
+              <HighLight className="moon">freelance projects</HighLight>
+              {' '}
+and
+              <HighLight className="lemon">full-time employment</HighLight>
+.
+            </DesChild>
           </Des>
           <Contact>
             <Phone>
@@ -36,15 +45,18 @@ export default class HomeContact extends React.PureComponent<Props> {
             </Skype>
           </Contact>
         </MainContent>
-        <NavTitle title={navTitle}>{navTitle}</NavTitle>
+        <NavTitle title={navTitle}>
+          <span title=">">&gt;</span>
+          {navTitle}
+        </NavTitle>
       </Container>
     );
   }
 }
 const MainContent = styled.div`
-  ${displayFlex('column', 'flex-start', 'center')}
+  ${displayFlex('column', 'center', 'center')}
   position: relative;
-  padding: 15px;
+  height: 100vh;
 `;
 
 const Des = styled.p`
@@ -62,8 +74,7 @@ const Contact = styled.div`
 `;
 const ContactStyle = css`
   span{
-    font-size: 20px;
-    font-size: ${rem('20px')};
+   ${fontSize('20px')}
   }
   span:first-child{
     color: #d3d3d3;
@@ -79,23 +90,24 @@ const Skype = styled.p`
   ${ContactStyle};
 `;
 const DesChild = styled.span`
-   font-size: 20px;
-   font-size: ${rem('20px')};
+  ${fontSize('20px')}
+  line-height: 1.8;
 `;
 
 const HighLight = styled.span`
   padding: 1px 3px;
-  font-size: 20px;
-  font-size: ${rem('20px')};
+  ${fontSize('20px')}
   margin-left: 3px;
   ${props => props.className === 'sun' && css`
     background-color: ${props.theme.color.sun};
+    color: ${props => props.theme.color.grey};
   `};
   ${props => props.className === 'moon' && css`
     background-color: ${props.theme.color.moon};
   `};
   ${props => props.className === 'lemon' && css`
     background-color: ${props.theme.color.lemon};
+     color: ${props => props.theme.color.grey};
   `};
   
 `;

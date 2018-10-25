@@ -4,7 +4,7 @@ import HomeProject from './HomeProject';
 import HomeAbout from './HomeAbout';
 import HomeContact from './HomeContact';
 import Navigation from '../Navigation';
-import { AnimatedWrapper } from './style';
+import { AnimatedWrapper } from '../common/style';
 
 export default class HomeComponent extends React.PureComponent {
   constructor() {
@@ -49,10 +49,10 @@ export default class HomeComponent extends React.PureComponent {
     return (
       <AnimatedWrapper>
         <Navigation isFinished={isFinished} />
-        <HomeTop navTitle="> Intro" />
-        <HomeProject isAnimated={isAnimated} navTitle="> All Works" />
-        <HomeAbout isAnimated={isAnimated} navTitle="> About me" />
-        <HomeContact navTitle="> Contact me" />
+        <HomeTop navTitle="Intro" />
+        <HomeProject isAnimated={isAnimated} navTitle="My works" />
+        <HomeAbout isAnimated={isAnimated} navTitle="About me" />
+        <HomeContact navTitle="Contact me" />
       </AnimatedWrapper>
     );
   }

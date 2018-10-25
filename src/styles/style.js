@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { rem, normalize } from 'polished';
+import styled from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
@@ -41,4 +42,10 @@ export const GlobalStyle = createGlobalStyle`
      }
   }
  
+`;
+
+export const Container = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
 `;
