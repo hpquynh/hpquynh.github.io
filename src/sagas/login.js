@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { loginFailure, loginSuccess } from '../actions/loginAction';
+import { loginSuccess } from '../actions/loginAction';
 import { auth } from '../firebase';
 
 export function* login(action) {
@@ -7,7 +7,7 @@ export function* login(action) {
     yield call([auth, auth.signInWithEmailAndPassword], ...Object.values(action.payload));
     yield put(loginSuccess());
   } catch (errors) {
-    yield put(loginFailure());
+    console.log(errors);
   }
 }
 

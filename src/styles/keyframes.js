@@ -234,3 +234,20 @@ export const slideBgRight = keyframes`
    
   }
 `;
+
+export const ripple = keyframes`
+  0% {
+    top: 28px;
+  left: 28px;
+  width: 0;
+  height: 0;
+  opacity: 1;
+}
+  100% {
+    top: -1px;
+  left: -1px;
+  width: 58px;
+  height: 58px;
+  opacity: 0;
+}
+`;

@@ -11,3 +11,4 @@ export const selector = createSelector(
     return data;
   },
 );
+export const getSelectedProject = state => state.project;

@@ -9,38 +9,6 @@ import {
 import objImg from '../../images/mockup.png';
 import WorkFrame from './WorkFrame';
 import { fadeIn, kira } from '../../styles/keyframes';
-
-type Props = {
-  navTitle: string,
-  isAnimated: boolean
-}
-export default class HomeProject extends React.PureComponent<Props> {
-  render() {
-    const { navTitle, isAnimated } = this.props;
-    return (
-      <Container>
-        <MainContent>
-          <FadeIn isAnimated={isAnimated}>
-            <Des>
-              I've worked as a full-time
-              {' '}
-              <Title>Frontend Developer</Title>
-              and a freelance &ensp;
-              <Title>UI designer</Title>
-for over two years.
-            </Des>
-            <Link className="button" to="/project"><ButtonText>Take a look at my works</ButtonText></Link>
-          </FadeIn>
-          <WorkFrame isAnimated={isAnimated} image={objImg} />
-        </MainContent>
-        <NavTitle title={navTitle}>
-          <span title=">">&gt;</span>
-          {navTitle}
-        </NavTitle>
-      </Container>
-    );
-  }
-}
 const MainContent = styled.div`
   ${displayFlex('row', 'center', 'center')}
   position: relative;
@@ -99,3 +67,35 @@ const ButtonText = styled.span`
   animation: ${kira} 1s ease infinite;
   text-transform: uppercase;
 `;
+
+type Props = {
+  navTitle: string,
+  isAnimated: boolean
+}
+export default class HomeProject extends React.PureComponent<Props> {
+  render() {
+    const { navTitle, isAnimated } = this.props;
+    return (
+      <Container>
+        <MainContent>
+          <FadeIn isAnimated={isAnimated}>
+            <Des>
+              I've worked as a full-time
+              {' '}
+              <Title>Frontend Developer</Title>
+              and a freelance &ensp;
+              <Title>UI designer</Title>
+for over two years.
+            </Des>
+            <Link className="button" to="/project"><ButtonText>Take a look at my works</ButtonText></Link>
+          </FadeIn>
+          <WorkFrame isAnimated={isAnimated} image={objImg} />
+        </MainContent>
+        <NavTitle title={navTitle}>
+          <span title=">">&gt;</span>
+          {navTitle}
+        </NavTitle>
+      </Container>
+    );
+  }
+}

@@ -22,7 +22,17 @@ export default class SplashComponent extends React.PureComponent<Props, State> {
   }
 
   componentDidMount() {
-    setTimeout(() => this.setState({ isLoading: false }), 1000);
+    this.timerHandle = setTimeout(() => {
+      this.setState({ isLoading: false });
+      this.timerHandle = 0;
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    if (this.timerHandle) {
+      clearTimeout(this.timerHandle);
+      this.timerHandle = 0;
+    }
   }
 
   render() {
@@ -37,7 +47,7 @@ export default class SplashComponent extends React.PureComponent<Props, State> {
       };
 
       return (
-        <div style={divStyle}></div>
+        <div style={divStyle} />
       );
     }
     return (

@@ -9,8 +9,13 @@ export default handleApiActions({
       ...state,
       project: action.payload,
     }),
+    CREATE_PROJECT_SUCCESS: state => ({
+      ...state,
+      isCreated: true,
+    }),
   },
   defaultState: {
     projects: {},
+    isCreated: false,
   },
 });

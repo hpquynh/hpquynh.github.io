@@ -16,6 +16,7 @@ export const theme = {
     shadow: '#3c3737',
     black: '#000',
     charcoal: '#27283B',
+    sky: '#408bfa',
   },
   screen: {
     xs: '575px',

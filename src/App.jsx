@@ -2,16 +2,19 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
 import WebFont from 'webfontloader';
 import store from './store/rootStore';
 import { theme } from './vars/theme';
 import { GlobalStyle } from './styles/style';
+import AuthRoute from './components/AuthRoute';
 import ProjectComponent from './components/Project';
-// import LoginComponent from './components/Login';
+import LoginComponent from './components/Login';
 import Error404 from './components/Error404';
 import AnimatedComponent from './components/common/AnimatedComponent';
 import MainComponent from './components/Main';
-import { database } from './firebase';
+import ProjectDetailComponent from './components/Project/ProjectDetail';
+import ProjectEditorComponent from './components/Project/ProjectEditor';
 
 WebFont.load({
   google: {
@@ -26,16 +29,6 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const ref = database.ref();
-    ref.on('value', (snapshot) => {
-      snapshot.forEach((userSnapshot) => {
-        const data = userSnapshot.val();
-        console.log('data: ', data);
-      });
-    });
-  }
-
   handleClick() {
     const { isSplashing } = this.state;
     this.setState({
@@ -46,23 +39,26 @@ class App extends React.Component {
   render() {
     const { isSplashing } = this.state;
     return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <ThemeProvider theme={theme}>
-            <main>
+      <CookiesProvider>
+        <Provider store={store}>
+          <BrowserRouter>
+            <ThemeProvider theme={theme}>
               <AnimatedComponent>
                 <GlobalStyle />
                 <Switch>
                   <Route path="/" component={() => <MainComponent action={() => this.handleClick()} isSplashing={isSplashing} />} exact />
-                  <Route path="/project" component={ProjectComponent} />
-                  {/*<Route path="/login" component={LoginComponent} />*/}
+                  <Route path="/project" component={ProjectComponent} exact />
+                  <Route path="/project/:id" component={ProjectDetailComponent} />
+                  <Route path="/login" component={LoginComponent} />
+                  <AuthRoute path="/create" component={ProjectEditorComponent} exact />
                   <Route path="*" component={Error404} />
                 </Switch>
               </AnimatedComponent>
-            </main>
-          </ThemeProvider>
-        </BrowserRouter>
-      </Provider>
+            </ThemeProvider>
+          </BrowserRouter>
+
+        </Provider>
+      </CookiesProvider>
     );
   }
 }

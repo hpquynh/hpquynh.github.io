@@ -1,7 +1,8 @@
 // @flow
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { displayFlex } from '../../styles/utils';
+import {
+  Form, Input, InputGroup, Button,
+} from '../common/Form';
 
 type Props = {
   email: string,
@@ -31,36 +32,3 @@ export class LoginForm extends React.Component<Props> {
     );
   }
 }
-
-
-export const Form = styled.form`
-  height: 32px;
-  padding: 5px;
-  box-sizing: border-box;
-  
-  
-  ${props => props.className === 'vertical' && css`
-      ${displayFlex('column', 'flex-start', 'flex-start')}
-  `}
-`;
-
-export const InputGroup = styled.div`
-  margin-bottom: 10px;
-`;
-
-export const Input = styled.input`
-  height: 32px;
-  padding: 5px;
-  box-sizing: border-box;
-`;
-
-export const Button = styled.button`
-  background-color: ${props => props.theme.color.moon};
-   ${displayFlex('column', 'center', 'center')}
-  color: white;
-  text-align: center;
-  width: 100%;
-  height: 32px;
-  box-sizing: border-box;
-  padding: 15px;
-`;

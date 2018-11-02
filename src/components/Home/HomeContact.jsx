@@ -3,56 +3,6 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Container, NavTitle } from '../common/style';
 import { displayFlex, fontSize } from '../../styles/utils';
-
-type Props = {
-  navTitle: string
-}
-export default class HomeContact extends React.PureComponent<Props> {
-  render() {
-    const { navTitle } = this.props;
-    return (
-      <Container>
-        <MainContent>
-          <Des>
-            <DesChild>
-              If you want to create something
-              {' '}
-              <HighLight className="sun">awesome</HighLight>
-,
-              you’re very welcome to contact me.
-            </DesChild>
-            <DesChild>
-I’m available for
-              <HighLight className="moon">freelance projects</HighLight>
-              {' '}
-and
-              <HighLight className="lemon">full-time employment</HighLight>
-.
-            </DesChild>
-          </Des>
-          <Contact>
-            <Phone>
-              <span>Call me:</span>
-              <span>(+84) 70 5911 112</span>
-            </Phone>
-            <Email>
-              <span>Email:</span>
-              <span>hophuongquynh92@gmail.com</span>
-            </Email>
-            <Skype>
-              <span>Skype:</span>
-              <span>live:hophuongquynh</span>
-            </Skype>
-          </Contact>
-        </MainContent>
-        <NavTitle title={navTitle}>
-          <span title=">">&gt;</span>
-          {navTitle}
-        </NavTitle>
-      </Container>
-    );
-  }
-}
 const MainContent = styled.div`
   ${displayFlex('column', 'center', 'center')}
   position: relative;
@@ -111,3 +61,52 @@ const HighLight = styled.span`
   `};
   
 `;
+type Props = {
+  navTitle: string
+}
+export default class HomeContact extends React.PureComponent<Props> {
+  render() {
+    const { navTitle } = this.props;
+    return (
+      <Container>
+        <MainContent>
+          <Des>
+            <DesChild>
+              If you want to create something
+              {' '}
+              <HighLight className="sun">awesome</HighLight>
+,
+              you’re very welcome to contact me.
+            </DesChild>
+            <DesChild>
+I’m available for
+              <HighLight className="moon">freelance projects</HighLight>
+              {' '}
+and
+              <HighLight className="lemon">full-time employment</HighLight>
+.
+            </DesChild>
+          </Des>
+          <Contact>
+            <Phone>
+              <span>Call me:</span>
+              <span>(+84) 70 5911 112</span>
+            </Phone>
+            <Email>
+              <span>Email:</span>
+              <span>hophuongquynh92@gmail.com</span>
+            </Email>
+            <Skype>
+              <span>Skype:</span>
+              <span>live:hophuongquynh</span>
+            </Skype>
+          </Contact>
+        </MainContent>
+        <NavTitle title={navTitle}>
+          <span title=">">&gt;</span>
+          {navTitle}
+        </NavTitle>
+      </Container>
+    );
+  }
+}

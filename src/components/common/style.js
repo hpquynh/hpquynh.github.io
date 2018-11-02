@@ -9,6 +9,8 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh;
+  scroll-snap-coordinate: 0% 0%;
+  z-index: 0;
 `;
 export const FlexColumn = styled.div`
  ${displayFlex('column', 'flex-start', 'flex-start')}
@@ -89,6 +91,10 @@ export const NavTitle = styled.div`
 export const AnimatedWrapper = styled.div`
   position: relative;
   transition: all .5s ease;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-destination: 0% 0%;
+  scroll-snap-type: mandatory;
   > * {
     animation: ${appearIn} 1s ease; 
   }

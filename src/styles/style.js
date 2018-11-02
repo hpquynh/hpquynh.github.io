@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import { rem, normalize } from 'polished';
-import styled from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
@@ -22,30 +21,31 @@ export const GlobalStyle = createGlobalStyle`
   }
   body{
     overflow-x: hidden;
-    overflow-y: auto;
-    width: 100%;
-    height: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-     * {
-      font-size: 13px;
-      font-size: ${rem('13px')};
-      font-weight: 300;
-      color: ${props => props.theme.color.grey};
-      line-height: 1.4;
-     }
+    text-rendering: optimizeLegibility;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    font-size: ${rem('13px')};
+    font-weight: 300;
+    color: ${props => props.theme.color.grey};
+    line-height: 1.4;
+    
      .p-l-20{
         padding-left: 20px;
      }
      .text-right{
         text-align: right;
      }
+     a{
+      text-decoration: none;
+      color: inherit;
+      transition: opacity .3s ease;
+      &:hover{
+        opacity: .8;
+      }
+     }
   }
  
-`;
-
-export const Container = styled.div`
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
 `;

@@ -1,11 +1,13 @@
 // @flow
 
 export type Project = {
+  id: string,
   name: string,
   description: string,
   thumbnailUrl: string,
-  environments: Object,
-  images: Object,
-  sources: Object,
-  types: Object,
+  environments: Array,
+  images: Array,
+  sources: Array,
+  types: Array,
+  links: Array
 };

@@ -47,7 +47,7 @@ const Wrapper = styled.div`
     position: relative;
   }
   section.route-section {
-    position: absolute;
+    position: relative;
     width: 100%;
     top: 0;
     left: 0;
