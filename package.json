@@ -15,10 +15,9 @@
   },
   "homepage": "https://hpquynh.github.io",
   "dependencies": {
-    "axios": "^0.18.0",
-    "date-fns": "^1.29.0",
-    "firebase": "^5.5.4",
+    "firebase": "^5.7.0",
     "formik": "^1.3.1",
+    "fullpage-react": "^3.1.0",
     "gh-pages": "^2.0.1",
     "lodash": "^4.17.11",
     "polished": "^2.2.0",
@@ -46,8 +45,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "babel-loader": "^8.0.4",
     "babel-plugin-styled-components": "^1.8.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
     "dotenv": "^6.1.0",
     "eslint-config-airbnb": "^17.1.0",
     "flow-bin": "^0.82.0",

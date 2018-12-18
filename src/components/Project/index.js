@@ -31,9 +31,9 @@ const ProjectHeader = styled.div`
  width: 100%;
  height: 300px;
  background: url(${props => props.background}) no-repeat;
- background-position: -20px 0;
- background-size: 550px;
- background-color: ${props => props.theme.color.mist};
+ background-position: center;
+ background-size: 416px;
+ background-color: ${props => props.theme.color.white};
  ${mediaMax.sm`
   height: 200px;
  `}

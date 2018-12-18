@@ -1,20 +1,22 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
+        "useBuiltIns": "entry",
         "modules": false,
         "targets": {
-          "browsers": "> 1%",
-          "uglify": true
-        },
-        "useBuiltIns": true
+          "browsers": [
+            "last 2 versions",
+            "safari >= 7"
+          ]
+        }
       }
     ],
-    "env",
-    "react",
-    "flow"
+    "@babel/react",
+    "@babel/flow"
   ],
+
   "plugins": [
     ["styled-components", {
       "displayName": true

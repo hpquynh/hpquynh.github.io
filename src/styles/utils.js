@@ -60,3 +60,24 @@ export const mediaMin = Object.keys(sizes).reduce((accumulator, label) => {
   `;
   return accumulator;
 }, {});
+
+export const getCurrentSection = (point, height, total) => {
+  let result = 0;
+  for (let i = 1; i <= total; i++) {
+    const prev = height * (i - 1);
+    const next = height * i;
+    if (point === prev) {
+      result = (i - 1);
+      break;
+    }
+    if (point === next) {
+      result = i;
+      break;
+    }
+    if (point > prev && point < next) {
+      result = (i - 1);
+      break;
+    }
+  }
+  return result;
+};

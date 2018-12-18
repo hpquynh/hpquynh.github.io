@@ -1,14 +1,14 @@
 // @flow
 import React from 'react';
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Container, NavTitle } from '../common/style';
 import {
-  displayFlex, buttonStyle, mediaMax, fontSize,
+  displayFlex, mediaMax, fontSize,
 } from '../../styles/utils';
+import { changeHeight } from '../../styles/keyframes';
 import objImg from '../../images/mockup.png';
 import WorkFrame from './WorkFrame';
-import { fadeIn, kira } from '../../styles/keyframes';
+
 const MainContent = styled.div`
   ${displayFlex('row', 'center', 'center')}
   position: relative;
@@ -20,57 +20,57 @@ const MainContent = styled.div`
   .button{
     text-decoration: none;
   }
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 60px;
+    width: 1px;
+    background-color: #333;
+    border-right: 1px solid ${props => props.theme.color.lemon};
+    animation ${changeHeight} 1.5s infinite ease;
+    transition: height .3s ease;
+  }
 `;
 const Des = styled.div`
  
 `;
-const Title = styled.div`
+const Title = styled.span`
     ${fontSize('26px')}
-    display: block;
+    display: inline-block;
     font-family: ${props => props.theme.font.second};
     margin: 5px 0;
     padding: 5px;
     font-weight: 400;
     text-transform: capitalize;
-    &:nth-of-type(1){
-      background-color: ${props => props.theme.color.lemon};
-      color: ${props => props.theme.color.grey};
-      width: fit-content;
-    }
-     &:nth-of-type(2){
-      background-color: ${props => props.theme.color.sun};
-      color: ${props => props.theme.color.grey};
-      width: fit-content;
-    }
+    background-color: ${props => props.theme.color.snow};
+    color: ${props => props.theme.color.grey};
+    width: fit-content;
+    line-height: 1;
+    ${mediaMax.sm`
+      ${fontSize('20px')}
+      font-weight: 500;
+   `}
 `;
 const FadeIn = styled.div`
   ${displayFlex('column', 'flex-start', 'flex-start')}
-  opacity: 0;
+  opacity: 1;
   flex-wrap: wrap;
-  max-width: 30%;
+  max-width: 35%;
   letter-spacing: initial;
-  ${props => props.isAnimated && css`
-    animation: ${fadeIn} 6s ease;
-    opacity: 1;
-  `}
+  padding: 0 30px;
+  margin-bottom: 1.5rem;
   ${mediaMax.sm`
     width: 100%;
     max-width: 100%;
+    margin-bottom: 1.2rem;
    `}
 `;
 
-const ButtonText = styled.span`
-  margin-top: 30px;
-  ${buttonStyle('#333', '#fff', '18px', '12px 15px 10px')}
-  line-height: 1;
-  border: 4px solid #bfffff;
-  animation: ${kira} 1s ease infinite;
-  text-transform: uppercase;
-`;
 
 type Props = {
   navTitle: string,
-  isAnimated: boolean
+  isAnimated: boolean,
 }
 export default class HomeProject extends React.PureComponent<Props> {
   render() {
@@ -78,16 +78,13 @@ export default class HomeProject extends React.PureComponent<Props> {
     return (
       <Container>
         <MainContent>
-          <FadeIn isAnimated={isAnimated}>
+          <FadeIn>
             <Des>
-              I've worked as a full-time
-              {' '}
-              <Title>Frontend Developer</Title>
-              and a freelance &ensp;
-              <Title>UI designer</Title>
-for over two years.
+              I've worked as a full-time <Title>Frontend Developer</Title>
             </Des>
-            <Link className="button" to="/project"><ButtonText>Take a look at my works</ButtonText></Link>
+            <Des>
+              and a freelance <Title>UI designer</Title> for over two years.
+            </Des>
           </FadeIn>
           <WorkFrame isAnimated={isAnimated} image={objImg} />
         </MainContent>

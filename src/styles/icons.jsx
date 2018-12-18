@@ -62,3 +62,13 @@ export const IconBack = () => (
     </g>
   </svg>
 );
+
+export const IconNext = () => (
+  <svg width="24px" height="15px" viewBox="0 0 24 15">
+    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+      <g id="back" fill="#333333">
+        <polygon id="Path" transform="translate(12.000000, 7.500000) scale(-1, 1) translate(-12.000000, -7.500000) " points="2.117 8 9.644 14.235 9 15 0 7.479 9 -8.8817842e-16 9.645 0.764 2.116 7 24 7 24 8" />
+      </g>
+    </g>
+  </svg>
+);

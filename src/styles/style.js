@@ -6,11 +6,12 @@ export const GlobalStyle = createGlobalStyle`
   html{
     box-sizing: border-box;
     font-size: 100%;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    // scroll-behavior: smooth;
+    // -webkit-overflow-scrolling: touch;
     width: 100vw;
     height: auto;
     position: relative;
+   
   }
   html:not(.wf-active){
     font-family: ${props => props.theme.font.fallback};
@@ -45,6 +46,13 @@ export const GlobalStyle = createGlobalStyle`
       &:hover{
         opacity: .8;
       }
+     }
+     * {
+      box-sizing: border-box;
+     }
+     .sticky{
+      position: sticky;
+      top: 0;
      }
   }
  

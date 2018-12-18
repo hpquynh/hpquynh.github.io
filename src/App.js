@@ -7,12 +7,12 @@ import WebFont from 'webfontloader';
 import store from './store/rootStore';
 import { theme } from './vars/theme';
 import { GlobalStyle } from './styles/style';
-import AuthRoute from './components/AuthRoute';
-import ProjectComponent from './components/Project';
-import LoginComponent from './components/Login';
-import Error404 from './components/Error404';
+import AuthRoute from './components/AuthRoute/index';
+import ProjectComponent from './components/Project/index';
+import LoginComponent from './components/Login/index';
+import Error404 from './components/Error404/index';
 import AnimatedComponent from './components/common/AnimatedComponent';
-import MainComponent from './components/Main';
+import MainComponent from './components/Main/index';
 import ProjectDetailComponent from './components/Project/ProjectDetail';
 import ProjectEditorComponent from './components/Project/ProjectEditor';
 

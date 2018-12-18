@@ -1,31 +1,9 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import {
-  ColorfulText, Container, FlexColumn, TextRight, NavTitle,
-} from '../common/style';
-import AvatarBlock from './AvatarBlock';
-import avtImg from '../../images/avatar.png';
-import { displayFlex, mediaMax, fontSize } from '../../styles/utils';
 import { wave1, wave2 } from '../../styles/keyframes';
+import { mediaMax } from '../../styles/utils';
 
-const MainContent = styled.div`
-  ${displayFlex('row', 'center', 'center')}
-  position: relative;
-  height: 100%;
-  margin: auto;
-  padding: 0 15px;
-   ${mediaMax.sm`
-    flex-direction: column !important;
-  `}
-`;
-const FlexWrapper = styled.div`
-  display: flex;
-  height: 100vh;
-  * {
-    z-index: 2;
-  }
-`;
 const WaveWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -42,6 +20,7 @@ const SmallWave = styled.svg`
   top: -5px;
   right: 0;
   z-index: 1;
+  user-select: none;
   .wave-wrap{
     stroke: none;
     stroke-width: 1;
@@ -49,23 +28,45 @@ const SmallWave = styled.svg`
     fill-rule: evenodd;
     transform: translate(-633deg, -42deg);
   }
+   ${mediaMax.md`
+      width: 100%;
+      height: auto;
+   `}
 `;
 const Wave = styled.svg`
   height: auto;
   position: absolute;
   left: 0;
   transform: translate3d(0, 0, 0);
+  will-change: transform;
   &:nth-of-type(1){
-    width: 60vw;
-    top: 30%;
+    width: 60%;
+    top: auto;
+    bottom: 0;
     animation: ${wave1} 20s cubic-bezier(0.42, 0.0, 0.58, 1.0) infinite;
     z-index: 0;
+    ${mediaMax.md`
+      width: 90%;
+   `}
+    ${mediaMax.sm`
+      width: 140%;
+   `}
   }
   &:nth-of-type(2){
-    width: 45vw;
-    top: 43%;
+    width: 45%;
+    top: auto;
+    bottom: 13%;
     animation: ${wave2} 25s cubic-bezier(0.25,0.1,0.25,1) -.125s infinite;
     z-index: 1;
+     ${mediaMax.md`
+      width: 80%;
+      bottom: 4%;
+   `}
+     ${mediaMax.sm`
+      width: 120%;
+      bottom: 4%;
+   `}
+   
   }
   .wave{
     fill-rule: evenodd;
@@ -78,28 +79,6 @@ const Wave = styled.svg`
   }
   .purple{
     fill:url(#linearGradient-1);
-  }
-`;
-const Name = styled.h1`
-  text-transform: uppercase;
-  text-align: right;
-  // text-shadow: -1px -1px 0 ${props => props.theme.color.moon}, 1px -1px 0 ${props => props.theme.color.moon}, -1px 1px 0 ${props => props.theme.color.moon}, 1px 1px 0 ${props => props.theme.color.moon};
-  ${fontSize('75px')}
-  font-family: ${props => props.theme.font.second};
-  position: relative;
-  margin: 20px 0 0 0;
-  transition: all .4s ease;
-  will-change: transform;
-  //transform: translate(0px, -${props => props.scrollY}%);
-  letter-spacing: 6px;
-  ${ColorfulText}
-  &:after {
-    content: 'Quynh HP.';
-    transform: translate(0.4vw, 0.3vh);
-    text-align: right;
-    width: 100%;
-    left: 0;
-    top: 0;
   }
 `;
 const WaveBlock = () => (
@@ -137,35 +116,11 @@ const SmallWaveBlock = () => (
   </SmallWave>
 );
 
-type Props = {
-  navTitle: string,
-  scrollY: number
-}
-export default class HomeTop extends React.PureComponent<Props> {
-  render() {
-    const { scrollY, navTitle } = this.props;
-    return (
-      <Container>
-        <WaveWrapper>
-          <SmallWaveBlock />
-          <WaveBlock />
-        </WaveWrapper>
-        <FlexWrapper>
-          <MainContent>
-            <AvatarBlock scrollY={scrollY / 9} image={avtImg} />
-            <FlexColumn className="p-l-20">
-              <Name scrollY={scrollY / 5}>Quynh HP.</Name>
-              <TextRight>A Frontend developer - A UX/UI designer - A Dreamer</TextRight>
-              <TextRight>Not unique . Just different</TextRight>
-              <TextRight>Danang, VN</TextRight>
-            </FlexColumn>
-          </MainContent>
-        </FlexWrapper>
-        <NavTitle title={navTitle}>
-          <span title=">">&gt;</span>
-          {navTitle}
-        </NavTitle>
-      </Container>
-    );
-  }
-}
+const Waves = () => (
+  <WaveWrapper>
+    <SmallWaveBlock />
+    <WaveBlock />
+  </WaveWrapper>
+);
+
+export default Waves;

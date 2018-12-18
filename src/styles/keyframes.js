@@ -85,27 +85,6 @@ export const wave2 = keyframes`
   }
 `;
 
-export const backgroundChange = keyframes`
-  0% {
-    background-color: #f5f5f5;
-  }
-  10% {
-     background-color: #8e91f4;
-  }
-  15% {
-   background-color: #8d8af1;
-  }
-  25% {
-    background-color: #48e8f4;
-  }
-  40% {
-    background-color: #fffe6a;
-  }
-  50%{
-    background-color: #f5f5f5;
-  }
- 
-`;
 
 export const colorChange = keyframes`
   0% {
@@ -129,26 +108,6 @@ export const colorChange = keyframes`
  
 `;
 
-export const moveToRight = keyframes`
-  0%{
-    transform: translate(-50%,0);
-  }
-  55%{
-    transform: translate(30%,0);
-  }
-`;
-
-export const fadeIn = keyframes`
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opacity: 1;
-  }
-  60%{
-    opacity: 1;
-  }
-`;
 export const appearIn = keyframes`
   0%{
     opacity: 0;
@@ -167,44 +126,6 @@ export const kira = keyframes`
   70%{
     border-color: #fffc75;
   }
-`;
-
-export const slideInDown = keyframes`
- from {
-    transform: translate3d(0, 500%, 0);
-    visibility: visible;
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-`;
-export const slideLeft = keyframes`
- 0%{
-    width: 0;
-  }
-  70%{
-    width: 40%;
-  }
-`;
-
-export const openUp = keyframes`
- from{
-     border-right-width: 100vw;
- }
- to{
-  border-right-width: 0;
- }
-`;
-
-export const openDown = keyframes`
- from{
-     border-left-width: 100vw;
- }
- to{
-     border-left-width: 0;
-       
- }
 `;
 export const slideBgLeft = keyframes`
   0% {
@@ -250,4 +171,48 @@ export const ripple = keyframes`
   height: 58px;
   opacity: 0;
 }
+`;
+
+export const shake = keyframes`
+from,
+  to {
+  
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+ 
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    
+    transform: translate3d(5px, 0, 0);
+  }
+`;
+
+export const changeHeight = keyframes`
+ from{
+     height: 0;
+ }
+ to{
+    height: 60px;
+ }
+`;
+
+export const fadeIn = keyframes`
+ from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 `;

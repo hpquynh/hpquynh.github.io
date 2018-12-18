@@ -27,9 +27,9 @@ export const theme = {
   },
   font: {
     fallback: '-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
-    main: 'Cousine',
-    second: 'Montserrat',
-  }
+    main: "'Cousine', Helvetica, Roboto, sans-serif;",
+    second: "'Montserrat', Helvetica, Roboto, sans-serif;",
+  },
 };
 
 export const { color, screen, font } = theme;

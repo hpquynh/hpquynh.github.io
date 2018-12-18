@@ -12,7 +12,7 @@ const SocialList = styled.div`
   padding: 0;
    ${displayFlex('row', 'flex-end', 'flex-start')}
    position: fixed;
-   transform: translate(calc(98vw - 140px),0);
+   transform: translate(calc(100vw - 170px),0);
    svg{
     width: 25px;
     height: auto;
@@ -34,7 +34,7 @@ const SocialList = styled.div`
    }
    transition: all .5s ease;
    ${props => props.className === 'centered' && css`
-      transform: translate(calc(50vw - 169px),65px);
+      transform: translate(calc(50vw - 147px),65px);
       a{
         margin: 3px;
         &:hover path{
@@ -57,7 +57,7 @@ const SocialList = styled.div`
         fill: #178ace;
       }
       svg{
-        width: 60px;
+        width: 50px;
         height: auto;
       }
   `}

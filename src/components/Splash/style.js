@@ -34,6 +34,11 @@ export const LogoButton = styled.a`
   border: 0;
   outline: 0;
   display: block;
+  box-sizing: content-box;
+  user-select: none;
+  * {
+   box-sizing: content-box;
+  }
 `;
 export const Background = styled.span`
   position: absolute;
@@ -108,7 +113,7 @@ export const Logo = styled.span`
   height: 200px;
   box-sizing: content-box;
   animation: ${fadeInRotate} 1s linear 16s backwards;
-  animation-delay: 1s;
+  animation-delay: 0.3s;
   &:after{
     content: '${strBeforeHover}';
     position: absolute;
@@ -121,7 +126,7 @@ export const Logo = styled.span`
     font-size: 1rem;
     text-align: center;
     animation: ${blurFadeIn} 4s infinite;
-    animation-delay: 4s;
+    animation-delay: 1s;
     opacity: 0;
     transition: top .5s ease;
   }
@@ -140,7 +145,7 @@ export const Logo = styled.span`
     &:before{
       opacity: 0;
       border-color: ${props => props.theme.color.sun};
-      transition: opacity .9s, rotate .2s;
+      transition: opacity .7s, rotate .2s;
     }
     &:after{
       transform:rotate(90deg);
