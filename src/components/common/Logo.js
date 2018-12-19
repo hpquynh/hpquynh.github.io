@@ -8,7 +8,7 @@ const LogoLink = styled(Link)`
    line-height: 1;
    display: flex;
    ${props => props.className === 'centered' && css`
-      transform: translate(calc(50vw - 40px),0) scale(1.2);
+      transform: translate(calc(50vw - 40px), 7px) scale(1.2);
   `}
 `;
 const LogoItem = styled.svg`
