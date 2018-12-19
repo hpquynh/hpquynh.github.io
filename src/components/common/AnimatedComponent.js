@@ -4,29 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 
-type Props = {
-  location: {key: string},
-  children: React.Node,
-}
-
-function AnimatedComponent({ location, children }: Props) {
-  return (
-    <Wrapper>
-      <TransitionGroup className="transition-group">
-        <CSSTransition
-          key={location.key}
-          timeout={{ enter: 300, exit: 300 }}
-          classNames="fade"
-        >
-          <section className="route-section">
-            { children }
-          </section>
-        </CSSTransition>
-      </TransitionGroup>
-    </Wrapper>
-  );
-}
-
 const Wrapper = styled.div`
   .fade-enter {
     opacity: 0.01;
@@ -54,5 +31,27 @@ const Wrapper = styled.div`
    
   }
 `;
+type Props = {
+  location: {key: string},
+  children: React.Node,
+}
+
+function AnimatedComponent({ location, children }: Props) {
+  return (
+    <Wrapper>
+      <TransitionGroup className="transition-group">
+        <CSSTransition
+          key={location.key}
+          timeout={{ enter: 300, exit: 300 }}
+          classNames="fade"
+        >
+          <section className="route-section">
+            { children }
+          </section>
+        </CSSTransition>
+      </TransitionGroup>
+    </Wrapper>
+  );
+}
 
 export default withRouter(AnimatedComponent);

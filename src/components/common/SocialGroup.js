@@ -8,18 +8,21 @@ import {
 import { displayFlex } from '../../styles/utils';
 
 const SocialList = styled.div`
-  position: relative;
   padding: 0;
-   ${displayFlex('row', 'flex-end', 'flex-start')}
-   position: fixed;
-   transform: translate(calc(100vw - 170px),0);
+  height: 25px;
+  ${displayFlex('row', 'flex-end', 'flex-start')}
+   ${props => !props.sticky && css`
+      position: fixed;
+      transform: translate(calc(100vw - 170px),0);
+   `}
+  
    svg{
     width: 25px;
     height: auto;
    }
    a{
     display: inline-block;
-    padding: 5px;
+    padding: 0 5px;
     path{
       transition: all .5s ease;
     
@@ -35,6 +38,7 @@ const SocialList = styled.div`
    transition: all .5s ease;
    ${props => props.className === 'centered' && css`
       transform: translate(calc(50vw - 147px),65px);
+      height: auto;
       a{
         margin: 3px;
         &:hover path{
@@ -64,13 +68,14 @@ const SocialList = styled.div`
 `;
 type Props = {
   isFinished: boolean,
+  sticky: boolean,
 }
 export default class SocialGroup extends React.PureComponent<Props> {
   render() {
-    const { isFinished } = this.props;
+    const { isFinished, sticky } = this.props;
     const positionClass = isFinished ? 'centered' : '';
     return (
-      <SocialList className={positionClass}>
+      <SocialList sticky={sticky} className={positionClass}>
         <Link to="//facebook.com/hpquynh/" target="_blank">
           <IconFacebook />
         </Link>

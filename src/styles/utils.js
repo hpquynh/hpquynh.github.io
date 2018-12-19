@@ -39,6 +39,12 @@ const sizes = {
   md: '768',
   lg: '992',
   xl: '1200',
+  mdMin: '576',
+  mdMax: '767',
+  lgMin: '768',
+  lgMax: '991',
+  xlMin: '992',
+  xlMax: '1199',
 };
 
 export const mediaMax = Object.keys(sizes).reduce((accumulator, label) => {
@@ -61,6 +67,8 @@ export const mediaMin = Object.keys(sizes).reduce((accumulator, label) => {
   return accumulator;
 }, {});
 
+
+
 export const getCurrentSection = (point, height, total) => {
   let result = 0;
   for (let i = 1; i <= total; i++) {
@@ -80,4 +88,17 @@ export const getCurrentSection = (point, height, total) => {
     }
   }
   return result;
+};
+
+export const randomStar = () => {
+  let star = '';
+  for (let i = 0; i < 100; i++) {
+    const delay = Math.random(100) * 100 >> 1;
+    star += `&:nth-of-type(${i}){
+      animation-delay: -${delay}s;
+      top: ${(Math.random(99) * 100)}vh;
+      left: ${(Math.random(99) * 100)}vw;
+    }`;
+  }
+  return star;
 };

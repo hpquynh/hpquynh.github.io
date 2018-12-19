@@ -27,8 +27,8 @@ export const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
     width: 100%;
     height: 100%;
-    font-size: 13px;
-    font-size: ${rem('13px')};
+    font-size: 14px;
+    font-size: ${rem('14px')};
     font-weight: 300;
     color: ${props => props.theme.color.grey};
     line-height: 1.4;

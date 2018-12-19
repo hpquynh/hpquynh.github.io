@@ -1,35 +1,11 @@
-/* eslint-disable no-plusplus,no-bitwise */
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import {
-  twinkle, blurFadeIn, fadeInRotate,
-} from '../../styles/keyframes';
+import { blurFadeIn, fadeInRotate, twinkle } from '../../styles/keyframes';
 
 const strBeforeHover = 'Click here ↆ';
 const strAfterHover = 'HOME';
-
-const randomStar = () => {
-  let star = '';
-  for (let i = 0; i < 100; i++) {
-    const delay = Math.random(100) * 100 >> 1;
-    star += `&:nth-of-type(${i}){
-      animation-delay: -${delay}s;
-      top: ${(Math.random(99) * 100)}vh;
-      left: ${(Math.random(99) * 100)}vw;
-    }`;
-  }
-  return star;
-};
-
-export const SplashSection = styled.section`
-  background-image: linear-gradient(to top, ${props => props.theme.color.dark} 0%, ${props => props.theme.color.darker} 100%);
-  background-attachment:fixed;
-  transition: background .2s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-export const LogoButton = styled.a`
+const Button = styled(Link)`
   background: transparent;
   border: 0;
   outline: 0;
@@ -40,7 +16,7 @@ export const LogoButton = styled.a`
    box-sizing: content-box;
   }
 `;
-export const Background = styled.span`
+const Background = styled.span`
   position: absolute;
   animation: ${twinkle} 10s infinite;
   top: 0;
@@ -52,8 +28,7 @@ export const Background = styled.span`
   height: 200px;
   box-shadow: 0 0 15vh ${props => props.theme.color.moon}, inset 0 0 5vh ${props => props.theme.color.sun};
 `;
-
-export const ChildStyle = css`
+const ChildStyle = css`
    cursor: pointer;
     border-radius: 50%;
     width: 100px;
@@ -64,7 +39,7 @@ export const ChildStyle = css`
     position: absolute;
 `;
 
-export const Child1 = styled.span`
+const Child1 = styled.span`
   ${ChildStyle}
   border-left-color: ${props => props.theme.color.altermoon};
   border-right-color: ${props => props.theme.color.sun};
@@ -97,7 +72,7 @@ export const Child1 = styled.span`
   }
 `;
 
-export const Child2 = styled.span`
+const Child2 = styled.span`
   ${ChildStyle}
   border-left-color: ${props => props.theme.color.altermoon};
   border-right-color: transparent;
@@ -105,7 +80,7 @@ export const Child2 = styled.span`
   border-top-color:transparent;
   transition:.5s;
 `;
-export const Logo = styled.span`
+const Logo = styled.span`
   display: block;
   position: relative;
   border-radius: 50%;
@@ -145,7 +120,7 @@ export const Logo = styled.span`
     &:before{
       opacity: 0;
       border-color: ${props => props.theme.color.sun};
-      transition: opacity .7s, rotate .2s;
+      transition: opacity .5s, rotate .1s;
     }
     &:after{
       transform:rotate(90deg);
@@ -162,19 +137,18 @@ export const Logo = styled.span`
     border-radius: 0;
   }
 `;
-export const Stars = styled.span`
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-`;
-export const Star = styled.span`
-  background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);;
-  box-shadow: 0 0 1px 1px white;
-  height: 1px;
-  width: 1px;
-  position: absolute;
-  z-index: 0;
-  opacity: .5;
-  animation: ${twinkle} 20s infinite;
-  border-radius: 50%;
-  ${randomStar()}
-`;
+
+export default class LogoButton extends React.PureComponent<Props> {
+  render() {
+    const { link } = this.props;
+    return (
+      <Button to={link}>
+        <Logo>
+          <Background />
+          <Child1 />
+          <Child2 />
+        </Logo>
+      </Button>
+    );
+  }
+}

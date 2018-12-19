@@ -5,14 +5,20 @@ import styled, { css } from 'styled-components';
 
 const LogoLink = styled(Link)`
    transition: all .5s ease;
+   line-height: 1;
+   display: flex;
    ${props => props.className === 'centered' && css`
       transform: translate(calc(50vw - 40px),0) scale(1.2);
   `}
 `;
 const LogoItem = styled.svg`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   user-select: none;
+   ${props => props.className === 'centered' && css`
+     width: 50px;
+      height: 50px;
+  `}
 `;
 type Props = {
   isFinished: boolean,
@@ -22,7 +28,7 @@ export default class Logo extends React.PureComponent<Props> {
     const { isFinished } = this.props;
     const positionClass = isFinished ? 'centered' : '';
     return (
-      <LogoLink className={positionClass} to="/">
+      <LogoLink className={positionClass} to="/home">
         <LogoItem width="352px" height="351px" viewBox="0 0 352 351">
           <defs />
           <g id="Symbols" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

@@ -3,6 +3,7 @@ export const theme = {
     white: '#fff',
     text: '#fff',
     grey: '#333',
+    line: '#dadada',
     snow: '#f5f7fa',
     cloud: '#c3cfe2',
     mist: '#f5f5f5',

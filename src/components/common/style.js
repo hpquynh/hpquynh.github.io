@@ -99,28 +99,28 @@ export const AnimatedWrapper = styled.div`
   > * {
     animation: ${appearIn} 2.5s ease; 
   }
-  &:before, &:after{
-    content: '';
-    position: fixed;
-    will-change: transform;
-    top: 0;
-    bottom: 0;
-    z-index: 4;
-    opacity: 1;
-    width: 50%;
-    height: 100%;
-    background-color: ${props => props.theme.color.dark};
-    background-image: linear-gradient(to top, ${props => props.theme.color.dark} 0%, ${props => props.theme.color.darker} 100%);
-  }
-  &:before{
-    left: 0;
-    right: auto;
-    animation: ${slideBgLeft} 0.5s forwards; 
-  }
-  &:after{
-    left: auto;
-    right: 0;
-    animation: ${slideBgRight} 0.6s forwards;
-  }
+  // &:before, &:after{
+  //   content: '';
+  //   position: fixed;
+  //   will-change: transform;
+  //   top: 0;
+  //   bottom: 0;
+  //   z-index: 4;
+  //   opacity: 1;
+  //   width: 50%;
+  //   height: 100%;
+  //   background-color: ${props => props.theme.color.dark};
+  //   background-image: linear-gradient(to top, ${props => props.theme.color.dark} 0%, ${props => props.theme.color.darker} 100%);
+  // }
+  // &:before{
+  //   left: 0;
+  //   right: auto;
+  //   animation: ${slideBgLeft} 0.5s forwards; 
+  // }
+  // &:after{
+  //   left: auto;
+  //   right: 0;
+  //   animation: ${slideBgRight} 0.6s forwards;
+  // }
  
 `;

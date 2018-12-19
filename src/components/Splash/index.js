@@ -1,13 +1,19 @@
 // @flow
 import React from 'react';
-import { times } from 'lodash';
-import {
-  SplashSection, LogoButton, Logo, Background, Child1, Child2, Stars, Star,
-} from './style';
+import styled from 'styled-components';
+import LogoButton from './LogoButton';
+import StarComponent from './Star';
 
-type Props = {
-  action: Function,
-}
+const SplashSection = styled.section`
+  background-image: linear-gradient(to top, ${props => props.theme.color.dark} 0%, ${props => props.theme.color.darker} 100%);
+  background-attachment:fixed;
+  transition: background .2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
 type State = {
   total: number,
 }
@@ -36,7 +42,6 @@ export default class SplashComponent extends React.PureComponent<Props, State> {
   }
 
   render() {
-    const { action } = this.props;
     const { total, isLoading } = this.state;
     if (isLoading) {
       const divStyle = {
@@ -52,18 +57,8 @@ export default class SplashComponent extends React.PureComponent<Props, State> {
     }
     return (
       <SplashSection>
-        <Stars>
-          {
-            times(total, i => <Star key={i} />)
-          }
-        </Stars>
-        <LogoButton onClick={action}>
-          <Logo>
-            <Background />
-            <Child1 />
-            <Child2 />
-          </Logo>
-        </LogoButton>
+        <StarComponent total={total} />
+        <LogoButton link="/home" />
       </SplashSection>
 
     );
