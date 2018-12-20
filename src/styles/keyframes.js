@@ -229,3 +229,19 @@ export const slideInRight = keyframes`
     transform: translate3d(0, 0, 0);
   }
 `;
+
+export const pulse = keyframes`
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+  
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+   
+    transform: scale3d(1, 1, 1);
+  }
+`;

@@ -72,6 +72,7 @@ const Item = styled.div`
 `;
 
 const Thumbnail = styled.img`
+ border-top: 1px solid ${props => props.theme.color.line};
   width: 100%;
   min-height: 200px;
    height: auto;
@@ -164,11 +165,11 @@ class ProjectComponent extends React.PureComponent<Props> {
                   ? projects.map((project: Project) => (
                     <Item key={project.id}>
                       <Link to={`${match.url}/${project.id}`}>
-                        <Thumbnail src={project.data.thumbnail} alt="gallery" />
                         <Info>
                           <Name>{project.data.name}</Name>
                           <SubDes>{project.data.description}</SubDes>
                         </Info>
+                        <Thumbnail src={project.data.thumbnail} alt="gallery" />
                       </Link>
                     </Item>
                   )) : ''
