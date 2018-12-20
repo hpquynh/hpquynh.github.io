@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ellipsis } from 'polished';
 import styled from 'styled-components';
 import _ from 'lodash';
-import { Project } from '../../models/project';
+import type { Project } from '../../models/project';
 import {
   displayFlex, fontSize, mediaMin, mediaMax,
 } from '../../styles/utils';
@@ -17,6 +17,8 @@ const Detail = styled.div`
   position: relative;
   z-index: 2;
   transition: padding .7s ease;
+   font-family: ${props => props.theme.font.second};
+   font-weight: 400;
   ${mediaMin.lgMin`
      animation: ${slideInRight} 0.5s forwards ease;
   `}
@@ -48,11 +50,10 @@ const Detail = styled.div`
      width: 100%;
      color: ${props => props.theme.color.grey};
      padding: 15px;
-    
   `}
 `;
 const Title = styled.h1`
-  ${fontSize('24px')}
+  ${fontSize('20px')}
   margin: 0;
   padding: 0;
   font-weight: 500;
@@ -60,7 +61,6 @@ const Title = styled.h1`
 const Description = styled.p`
   ${fontSize('14px')}
   margin: 5px 0 0 0;
-  font-family: ${props => props.theme.font.second};
   font-weight: 400;
 `;
 const InfoGroup = styled.div`
@@ -83,7 +83,6 @@ const Sources = styled.span`
     &:not(:first-of-type){
       &:before{
         content: '|';
-        
       }
     }
   }
@@ -134,19 +133,22 @@ const Grid = styled.div`
 const GridImage = styled.img`
   width: 100%;
   height: 100%;
-   border: 1px solid ${props => props.theme.color.line};
    box-shadow: 2px 1px 1px 0px rgba(0,0,0,0.05);
-  background-color: ${props => props.theme.color.mist};
+  background-color: ${props => props.theme.color.grey};
   object-fit: contain;
   object-position: center;
   filter: grayscale(90%);
-  transition: filter .3s ease;
+  transition: all .3s ease;
   user-select: none;
+  border: 2px solid ${props => props.theme.color.white};
   &:hover, &:active, &:focus{
     filter: none;
+     border: 2px solid ${props => props.theme.color.lemon};
   }
    ${mediaMax.sm`
      filter: none;
+     box-shadow: 2px 1px 20px 0px rgba(0,0,0,0.1); 
+      border: 1px solid ${props => props.theme.color.mist};
   `}
 `;
 const ImageCaption = styled.div`

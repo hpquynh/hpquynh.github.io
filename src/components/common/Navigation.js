@@ -39,7 +39,7 @@ const TitleBlock = styled.div`
   width: 100%;
 `;
 const Title = styled.h1`
-  ${fontSize('25px')}
+  ${fontSize('20px')}
   margin: 0;
   font-weight: 400;
   transition: font-size .3s ease;

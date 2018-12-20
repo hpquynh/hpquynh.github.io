@@ -14,6 +14,7 @@ const GridContainer = styled(Container)`
 
 const Main = styled.div`
   grid-area: main;
+  background-color: #fafafa;
 `;
 type Props = {
   children: React.Node,

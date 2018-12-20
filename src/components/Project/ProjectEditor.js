@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../common/style';
-import {displayFlex, fontSize} from '../../styles/utils';
+import { displayFlex, fontSize } from '../../styles/utils';
 import ProjectEditorForm from './ProjectEditorForm';
 
 const MainContent = styled.div`
