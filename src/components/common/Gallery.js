@@ -4,6 +4,7 @@ import Masonry from 'react-masonry-component';
 
 const masonryOptions = {
   transitionDuration: 200,
+  horizontalOrder: true,
 };
 const masonryStyle = {
   display: 'block',

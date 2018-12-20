@@ -19,14 +19,18 @@ type Props = {
   children: React.Node,
   title: React.Node,
   sticky: boolean,
+  light: boolean,
 }
 
 export default class CommonComponent extends React.PureComponent<Props> {
   render() {
-    const { children, title, sticky } = this.props;
+    const {
+      children, title, sticky,
+      light,
+    } = this.props;
     return (
       <GridContainer>
-        <Navigation sticky={sticky} title={title} />
+        <Navigation light={light} sticky={sticky} title={title} />
         <Main>
           { children }
         </Main>

@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ellipsis } from 'polished';
 import styled from 'styled-components';
 import _ from 'lodash';
 import { Project } from '../../models/project';
@@ -20,14 +21,14 @@ const Detail = styled.div`
      animation: ${slideInRight} 0.5s forwards ease;
   `}
    ${mediaMin.mdMin`
-        color: white;
+        color: ${props => props.theme.color.grey};
        width: 35%;
-       padding: 71px 30px 30px;
+       padding: 60px 30px 30px;
        &:before{
         content: '';
         z-index: -1;
         position: absolute; top: 0; left: -30px; right: 0; bottom: 0;
-        background-color: ${props => props.theme.color.darker};
+        background-color: ${props => props.theme.color.white};
         transform: translate3d(24px,0px,41px) skew(-3deg,0);
         outline: 1px solid transparent;
         box-shadow: 0 0 1px rgba(255,255,255,0);
@@ -52,10 +53,9 @@ const Detail = styled.div`
 `;
 const Title = styled.h1`
   ${fontSize('24px')}
-  margin: 0 0 5px 0;
+  margin: 0;
   padding: 0;
   font-weight: 500;
-  text-align: center;
 `;
 const Description = styled.p`
   ${fontSize('14px')}
@@ -64,16 +64,19 @@ const Description = styled.p`
   font-weight: 400;
 `;
 const InfoGroup = styled.div`
-  text-align: center;
-   ${displayFlex('column wrap', 'center', 'center')}
+  text-align: left;
+  line-height: 1.6;
+   ${displayFlex('column wrap', 'center', 'flex-start')}
   
 `;
 const Environments = styled.span`
-  text-align: center;
+  text-align: left;
+  line-height: 1;
   svg{
    margin: 0 5px;
   }
 `;
+const Types = styled.span``;
 const Sources = styled.span`
  ${fontSize('14px')}
  span{
@@ -86,7 +89,8 @@ const Sources = styled.span`
   }
 `;
 const Links = styled.ul`
-  padding-left: 10px;
+  padding-left: 15px;
+  margin: 10px 0;
   a{
     text-decoration: underline;
   }
@@ -102,13 +106,12 @@ const GridContainer = styled.div`
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
   `}
-   ${mediaMax.mdMax`
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr;
-  `}
   ${mediaMax.sm`
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
+       grid-gap: 30px;
+      border-top: 1px solid ${props => props.theme.color.line};
+      padding-top: 20px;
   `}
 `;
 const Grid = styled.div`
@@ -131,7 +134,8 @@ const Grid = styled.div`
 const GridImage = styled.img`
   width: 100%;
   height: 100%;
-  border: 1px solid ${props => props.theme.color.mist};
+   border: 1px solid ${props => props.theme.color.line};
+   box-shadow: 2px 1px 1px 0px rgba(0,0,0,0.05);
   background-color: ${props => props.theme.color.mist};
   object-fit: contain;
   object-position: center;
@@ -145,7 +149,20 @@ const GridImage = styled.img`
      filter: none;
   `}
 `;
-
+const ImageCaption = styled.div`
+  
+   ${mediaMax.sm`
+     ${ellipsis('100%')}
+     font-weight: 500;
+     font-family: ${props => props.theme.font.second};
+  `}
+  ${mediaMin.mdMin`
+    display: none;
+  `}
+`;
+const Row = styled.div`
+  ${displayFlex('row', 'flex-start', 'center')}
+`;
 type Props = {
   project: Project,
   handleClick: Function,
@@ -156,42 +173,71 @@ class ProjectDetailComponent extends React.PureComponent<Props> {
     const { project, handleClick } = this.props;
     return (
       <Detail>
-        <Title>{project.name}</Title>
-        <InfoGroup>
-          <Environments>
-            {
-              project.environments.map((en) => {
-                if (en === 'pc') {
-                  return <IconPc key={en} />;
-                } if (en === 'mobile') {
-                  return <IconMobile key={en} />;
+        {
+          project
+            ? (
+              <div>
+                <Title>{project.name}</Title>
+                <InfoGroup>
+                  <Description>{project.description}</Description>
+                  <Row>
+                    <Environments>
+                      {
+                      project.environments.map((en) => {
+                        if (en.toLowerCase() === 'pc') {
+                          return <IconPc key={en} />;
+                        } if (en.toLowerCase() === 'mobile') {
+                          return <IconMobile key={en} />;
+                        }
+                        return null;
+                      })
+                    }
+                    </Environments>
+                    <span> | </span>
+                    <Types>
+                      {
+                      project.types.map(type => (
+                        <span key={type}> {type} </span> || null
+                      ))
+                    }
+                    </Types>
+                  </Row>
+                  <Sources>
+                    {
+                    project.sources.map(source => (
+                      <span key={source}>{_.capitalize(source)}</span> || null
+                    ))
+                  }
+                  </Sources>
+
+                </InfoGroup>
+                {
+                project.links
+                  ? (
+                    <Links>
+                      {
+                        project.links.map(link => (
+                          link ? (
+                            <li key={link}>
+                              <Link target="_blank" to={`//${link}`}>{link}</Link>
+                            </li>
+                          ) : ''
+                        ))
+                      }
+                    </Links>) : ''
+              }
+                <GridContainer>
+                  {
+                  project.images.map((image, index) => (
+                    <Grid key={index}>
+                      <ImageCaption>{image.description}</ImageCaption>
+                      <GridImage onClick={handleClick} src={image.url} alt={image.description} />
+                    </Grid> || null))
                 }
-                return null;
-              })
-            }
-          </Environments>
-          <Sources>
-            {
-              project.sources.map(source => (
-                <span key={source}>{_.capitalize(source)}</span> || null
-              ))
-            }
-          </Sources>
-        </InfoGroup>
-        <Description>{project.description}</Description>
-        <Links>
-          {
-            project.links ? project.links.map(link => <li key={link}><Link target="_blank" to={`//${link}`}>{link}</Link></li> || null) : ''
-          }
-        </Links>
-        <GridContainer>
-          {
-            project.images.map((image, index) => (
-              <Grid key={index}>
-                <GridImage onClick={handleClick} src={image.url} alt={image.description} />
-              </Grid> || null))
-          }
-        </GridContainer>
+                </GridContainer>
+              </div>
+            ) : ''
+        }
       </Detail>
     );
   }
