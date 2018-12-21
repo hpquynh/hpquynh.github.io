@@ -142,7 +142,7 @@ export default class LogoButton extends React.PureComponent<Props> {
   render() {
     const { link } = this.props;
     return (
-      <Button to={link}>
+      <Button to={link} aria-label="Go to home">
         <Logo>
           <Background />
           <Child1 />
