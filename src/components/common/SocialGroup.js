@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import {
   IconFacebook, IconTwitter, IconInstagram, IconLinkedin,
 } from '../../styles/icons';
-import { displayFlex } from '../../styles/utils';
+import { displayFlex, mediaMax } from '../../styles/utils';
 
 const SocialList = styled.div`
   padding: 0;
@@ -37,7 +37,7 @@ const SocialList = styled.div`
    }
    transition: all .5s ease;
    ${props => props.className === 'centered' && css`
-      transform: translate(calc(50vw - 147px),65px);
+      transform: translate(calc(50vw - 147px), 70px);
       height: auto;
       a{
         margin: 3px;
@@ -64,6 +64,12 @@ const SocialList = styled.div`
         width: 50px;
         height: auto;
       }
+       ${mediaMax.sm`
+         transform: translate(calc(50vw - 126px), 75px);
+         svg{
+          width: 40px;
+         }
+      `}
   `}
 `;
 type Props = {

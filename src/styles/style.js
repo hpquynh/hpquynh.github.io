@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: auto;
     position: relative;
-   
+    font-display: fallback;
   }
   html:not(.wf-active){
     font-family: ${props => props.theme.font.fallback};

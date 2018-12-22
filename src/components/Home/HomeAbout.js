@@ -33,6 +33,8 @@ const Content = styled.div`
   ${mediaMax.sm`
     width: 100%;
     ${fontSize('12px')}
+    margin: 30px;
+    padding: 15px;
   `}
 `;
 const MainContent = styled.div`
@@ -104,7 +106,6 @@ const Item = styled.p`
 `;
 type Props = {
   navTitle: string,
-  isAnimated: boolean,
 }
 export default class HomeAbout extends React.PureComponent<Props> {
   constructor() {

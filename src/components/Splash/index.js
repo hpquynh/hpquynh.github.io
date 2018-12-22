@@ -23,38 +23,40 @@ export default class SplashComponent extends React.PureComponent<Props, State> {
     super();
     this.state = {
       total: 100,
-      isLoading: true,
+      // isLoading: true,
     };
   }
 
-  componentDidMount() {
-    this.timerHandle = setTimeout(() => {
-      this.setState({ isLoading: false });
-      this.timerHandle = 0;
-    }, 1000);
-  }
+  // componentDidMount() {
+  //   this.timerHandle = setTimeout(() => {
+  //     this.setState({ isLoading: false });
+  //     this.timerHandle = 0;
+  //   }, 300);
+  //   this.setState({ isLoading: false });
+  // }
 
-  componentWillUnmount() {
-    if (this.timerHandle) {
-      clearTimeout(this.timerHandle);
-      this.timerHandle = 0;
-    }
-  }
+  // componentWillUnmount() {
+  //   if (this.timerHandle) {
+  //     clearTimeout(this.timerHandle);
+  //     this.timerHandle = 0;
+  //   }
+  // }
 
   render() {
-    const { total, isLoading } = this.state;
-    if (isLoading) {
-      const divStyle = {
-        background: 'linear-gradient(to top,#1e2e37 0%,#050608 100%)',
-        height: '100vh',
-        margin: '0',
-        padding: '0',
-      };
-
-      return (
-        <div style={divStyle} />
-      );
-    }
+    // const { total, isLoading } = this.state;
+    const { total } = this.state;
+    // if (isLoading) {
+    //   const divStyle = {
+    //     background: 'linear-gradient(to top,#1e2e37 0%,#050608 100%)',
+    //     height: '100vh',
+    //     margin: '0',
+    //     padding: '0',
+    //   };
+    //
+    //   return (
+    //     <div style={divStyle} />
+    //   );
+    // }
     return (
       <SplashSection>
         <StarComponent total={total} />

@@ -2,7 +2,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Container, NavTitle } from '../common/style';
-import { displayFlex, fontSize } from '../../styles/utils';
+import { displayFlex, fontSize, mediaMax } from '../../styles/utils';
+
 const MainContent = styled.div`
   ${displayFlex('column', 'center', 'center')}
   position: relative;
@@ -13,6 +14,14 @@ const Des = styled.p`
   ${displayFlex('column wrap', 'flex-start', 'flex-start')}
   padding: 20px;
   margin: 20px auto 0 auto;
+   ${mediaMax.lgMax`
+     margin-top: 0;
+     max-width: 400px;
+  `}
+  ${mediaMax.sm`
+    padding: 15px;
+  
+  `}
   
 `;
 const Contact = styled.div`
@@ -25,6 +34,9 @@ const Contact = styled.div`
 const ContactStyle = css`
   span{
    ${fontSize('20px')}
+    ${mediaMax.sm`
+     ${fontSize('16px')}
+  `}
   }
   span:first-child{
     color: #d3d3d3;
@@ -42,6 +54,14 @@ const Skype = styled.p`
 const DesChild = styled.span`
   ${fontSize('20px')}
   line-height: 1.8;
+   ${mediaMax.lgMax`
+     ${fontSize('18px')}
+     line-height: 1.6;
+  `}
+   ${mediaMax.sm`
+     ${fontSize('16px')}
+     line-height: 1.6;
+  `}
 `;
 
 const HighLight = styled.span`
@@ -59,7 +79,9 @@ const HighLight = styled.span`
     background-color: ${props.theme.color.lemon};
      color: ${props => props.theme.color.grey};
   `};
-  
+  ${mediaMax.sm`
+     ${fontSize('16px')}
+  `}
 `;
 type Props = {
   navTitle: string

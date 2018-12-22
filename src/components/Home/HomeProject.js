@@ -24,7 +24,7 @@ const MainContent = styled.div`
     content: '';
     position: absolute;
     top: 0;
-    height: 60px;
+    height: 40px;
     width: 1px;
     background-color: #333;
     border-right: 1px solid ${props => props.theme.color.lemon};
@@ -48,7 +48,7 @@ const Title = styled.span`
     width: fit-content;
     line-height: 1;
     ${mediaMax.sm`
-      ${fontSize('20px')}
+      ${fontSize('18px')}
       font-weight: 500;
    `}
 `;
@@ -63,7 +63,8 @@ const FadeIn = styled.div`
   ${mediaMax.sm`
     width: 100%;
     max-width: 100%;
-    margin-bottom: 1.2rem;
+    margin-bottom: 10px;
+    margin-top: 20px;
    `}
 `;
 

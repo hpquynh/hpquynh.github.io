@@ -203,7 +203,7 @@ export const changeHeight = keyframes`
      height: 0;
  }
  to{
-    height: 60px;
+    height: 40px;
  }
 `;
 

@@ -42,6 +42,7 @@ const Name = styled.h1`
   margin: 20px 0 0 0;
   transition: all .4s ease;
   letter-spacing: 6px;
+  line-height: 1.2;
   ${ColorfulText}
   &:after {
     content: 'Quynh HP.';
@@ -53,7 +54,7 @@ const Name = styled.h1`
     top: 0;
   }
    ${mediaMax.sm`
-     ${fontSize('65px')}
+     ${fontSize('55px')}
    `}
 `;
 const TextBackground = styled.span`
@@ -70,7 +71,7 @@ const BubbleWrapper = styled.span`
   position: absolute;
   left: 0;
   width: 50vw;
-  top: 0;
+  top: calc(50vh - 25vw);
   transform: translate3d(140px, 100px, 100px);
   transition: all .3s;
   svg{

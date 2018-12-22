@@ -2,13 +2,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import { mediaMax } from '../../styles/utils';
 
 const LogoLink = styled(Link)`
    transition: all .5s ease;
    line-height: 1;
    display: flex;
    ${props => props.className === 'centered' && css`
-      transform: translate(calc(50vw - 40px), 7px) scale(1.2);
+      transform: translate(calc(50vw - 40px), 10px) scale(1.2);
   `}
 `;
 const LogoItem = styled.svg`
@@ -18,7 +19,12 @@ const LogoItem = styled.svg`
    ${props => props.className === 'centered' && css`
      width: 50px;
       height: 50px;
+       ${mediaMax.sm`
+        width: 40px;
+        height: 40px;
+      `}
   `}
+  
 `;
 type Props = {
   isFinished: boolean,
