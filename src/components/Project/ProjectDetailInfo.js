@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ellipsis } from 'polished';
 import styled from 'styled-components';
-import _ from 'lodash';
 import type { Project } from '../../models/project';
 import {
   displayFlex, fontSize, mediaMin, mediaMax,
@@ -60,33 +59,43 @@ const Title = styled.h1`
 `;
 const Description = styled.p`
   ${fontSize('14px')}
-  margin: 5px 0 0 0;
+  margin: 0;
   font-weight: 400;
 `;
 const InfoGroup = styled.div`
   text-align: left;
-  line-height: 1.6;
+  padding: 0;
    ${displayFlex('column wrap', 'center', 'flex-start')}
   
 `;
 const Environments = styled.span`
   text-align: left;
-  line-height: 1;
+  line-height: 1.6;
   svg{
    margin: 0 5px;
+   vertical-align: middle;
   }
 `;
-const Types = styled.span``;
-const Sources = styled.span`
- ${fontSize('14px')}
- span{
-    &:not(:first-of-type){
+const Types = styled.span`
+  line-height: 1.6;
+  span{
+    &:not(:first-child){
       &:before{
-        content: '|';
+        content: ' | ';
       }
     }
   }
 `;
+// const Sources = styled.span`
+//  ${fontSize('14px')}
+//  span{
+//     &:not(:first-of-type){
+//       &:before{
+//         content: '|';
+//       }
+//     }
+//   }
+// `;
 const Links = styled.ul`
   padding-left: 15px;
   margin: 10px 0;
@@ -162,9 +171,6 @@ const ImageCaption = styled.div`
     display: none;
   `}
 `;
-const Row = styled.div`
-  ${displayFlex('row', 'flex-start', 'center')}
-`;
 type Props = {
   project: Project,
   handleClick: Function,
@@ -180,11 +186,18 @@ class ProjectDetailComponent extends React.PureComponent<Props> {
             ? (
               <div>
                 <Title>{project.name}</Title>
+                <Description>{project.description}</Description>
                 <InfoGroup>
-                  <Description>{project.description}</Description>
-                  <Row>
-                    <Environments>
-                      {
+                  {/*<Sources>*/}
+                    {/*{*/}
+                      {/*project.sources.map(source => (*/}
+                        {/*<span key={source}>{_.capitalize(source)}</span> || null*/}
+                      {/*))*/}
+                    {/*}*/}
+                  {/*</Sources>*/}
+                  <Environments>
+                    For:
+                    {
                       project.environments.map((en) => {
                         if (en.toLowerCase() === 'pc') {
                           return <IconPc key={en} />;
@@ -194,23 +207,15 @@ class ProjectDetailComponent extends React.PureComponent<Props> {
                         return null;
                       })
                     }
-                    </Environments>
-                    <span> | </span>
-                    <Types>
-                      {
+                  </Environments>
+                  <Types>
+                    Role:
+                    {
                       project.types.map(type => (
                         <span key={type}> {type} </span> || null
                       ))
                     }
-                    </Types>
-                  </Row>
-                  <Sources>
-                    {
-                    project.sources.map(source => (
-                      <span key={source}>{_.capitalize(source)}</span> || null
-                    ))
-                  }
-                  </Sources>
+                  </Types>
 
                 </InfoGroup>
                 {
