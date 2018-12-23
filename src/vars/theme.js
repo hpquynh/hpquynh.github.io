@@ -27,7 +27,7 @@ export const theme = {
     xl: '1200px',
   },
   font: {
-    fallback: '-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+    fallback: "-apple-system, BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'",
     main: "'Cousine', Helvetica, Roboto, sans-serif;",
     second: "'Montserrat', Helvetica, Roboto, sans-serif;",
   },

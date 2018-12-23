@@ -19,7 +19,12 @@ import HomeComponent from './components/Home';
 
 WebFont.load({
   google: {
-    families: ['Cousine:400,700&amp;subset=vietnamese', 'Montserrat:300,400,500&subset=vietnamese'],
+    families: ['Cousine:400,700&amp;subset=vietnamese'],
+  },
+});
+WebFont.load({
+  google: {
+    families: ['Montserrat:300,400,500&amp;subset=vietnamese'],
   },
 });
 

@@ -45,7 +45,6 @@ const Title = styled.h1`
   transition: font-size .3s ease;
   ${ellipsis('80%')}
   font-family: ${props => props.theme.font.second};
-  font-style: italic;
   line-height: 1;
   border-bottom: 3px solid ${props => props.theme.color.moon};
    ${props => props.light && css`
